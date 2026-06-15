@@ -365,11 +365,13 @@
   .row-text p:last-child { margin-bottom: 0; }
   .row-tag {
     font-family: 'Caveat', cursive;
-    font-size: 1.5rem;
+    font-size: 2.2rem;
+    font-weight: 600;
     color: var(--burgundy);
-    margin-bottom: 0.4rem !important;
+    margin-bottom: 0.6rem !important;
     transform: rotate(-2deg);
     display: inline-block;
+    line-height: 1;
   }
   .row-image .image-placeholder { aspect-ratio: 4 / 5; }
   .row-image { position: relative; }
@@ -575,6 +577,15 @@
     color: var(--green);
     line-height: 1.15;
   }
+  .approx-wave {
+    display: block;
+    width: 38px;
+    height: 10px;
+    margin-bottom: 0.35rem;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 10' preserveAspectRatio='none'><path d='M1,5 Q6,1 11,5 T21,5 T31,5 T37,5' stroke='%23F39A60' stroke-width='2.2' fill='none' stroke-linecap='round'/></svg>");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 
   /* INCLUDED / NOT */
   .incl-grid {
@@ -685,15 +696,16 @@
     margin: 3rem auto 0;
     background: var(--cream);
     border-radius: 20px;
-    padding: 2.5rem;
+    padding: 1rem;
     text-align: center;
-    border: 2px dashed rgba(245, 241, 228, 0.4);
     color: var(--ink);
+    overflow: hidden;
   }
   .form-wrap iframe {
     width: 100%;
     border: 0;
-    min-height: 600px;
+    display: block;
+    border-radius: 12px;
   }
   .form-wrap .placeholder-note {
     color: var(--muted);
@@ -816,17 +828,24 @@
       </div>
       <div class="micro-item">
         <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M24 6 C28 14 20 18 24 26 C28 22 32 26 30 32 C36 30 38 22 32 16 C32 22 28 22 28 16 C28 12 26 9 24 6 Z"/>
-          <path d="M18 32 C14 36 18 42 24 42 C30 42 34 36 30 32"/>
+          <rect x="15" y="7" width="18" height="34" rx="3"/>
+          <line x1="22" y1="35" x2="26" y2="35"/>
+          <line x1="9" y1="9" x2="39" y2="41"/>
         </svg>
-        <h3>Learn practical outdoor skills</h3>
+        <h3>Being offline</h3>
       </div>
       <div class="micro-item">
         <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="16" cy="18" r="5"/>
-          <circle cx="32" cy="18" r="5"/>
-          <path d="M8 38 c0-5 4-9 8-9 s8 4 8 9"/>
-          <path d="M24 38 c0-5 4-9 8-9 s8 4 8 9"/>
+          <!-- figure 1 -->
+          <circle cx="16" cy="15" r="5"/>
+          <path d="M11 17 Q8 26 11 33"/>
+          <path d="M21 17 Q24 26 21 33"/>
+          <path d="M8 40 c0-5 4-9 8-9 s8 4 8 9"/>
+          <!-- figure 2 -->
+          <circle cx="32" cy="15" r="5"/>
+          <path d="M27 17 Q24 26 27 33"/>
+          <path d="M37 17 Q40 26 37 33"/>
+          <path d="M24 40 c0-5 4-9 8-9 s8 4 8 9"/>
         </svg>
         <h3>Together with a small group of women</h3>
       </div>
@@ -1019,7 +1038,7 @@
       </div>
       <div class="detail">
         <div class="label">Price</div>
-        <div class="value">€90<br/>per person</div>
+        <div class="value"><span class="approx-wave" aria-label="approximately"></span>€90<br/>per person</div>
       </div>
     </div>
 
@@ -1104,13 +1123,11 @@
     <h2>Come <em>along</em>.</h2>
     <p class="form-lead">Drop your details below — I'll be in touch with upcoming dates and answer any question you've got. No pressure, no spam.</p>
     <div class="form-wrap">
-      <!-- Replace the src below with your Google Form embed URL -->
-      <!-- <iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true" loading="lazy">Loading…</iframe> -->
-      <div class="placeholder-note">
-        <p>[ Google Form embed goes here ]</p>
-        <code>&lt;iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true" width="100%" height="600" frameborder="0"&gt;&lt;/iframe&gt;</code>
-        <p style="margin-top:1rem;font-size:0.85rem;font-family:'Inter',sans-serif;font-style:normal;">Replace with the embed code from your Google Form (Send → &lt;/&gt; Embed HTML).</p>
-      </div>
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSdfxBIqL7K6IBgJpiq7ByqI-PxzBL5ZlzscHqtfKxccqWMqWA/viewform?embedded=true"
+        width="100%" height="1100" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">
+        Loading…
+      </iframe>
     </div>
   </div>
 </section>
