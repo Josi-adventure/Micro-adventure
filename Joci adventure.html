@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Josi Adventure — Micro adventures in nature for women</title>
+<meta name="description" content="Josi Adventure organizes micro adventures in the Netherlands for women — hiking, camping, breathwork and real disconnection from everyday life." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f7f5f0;
+    color: #2c2c2a;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .container { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 2rem; }
+
+  .hero {
+    background: #2d5a3d;
+    color: white;
+    padding: 4.5rem 2rem 3.5rem;
+    text-align: center;
+    border-radius: 16px;
+    margin-bottom: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 20px);
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.9);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 1.2rem;
+    position: relative;
+  }
+  .hero h1 {
+    font-size: 2.8rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.8);
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+    max-width: 480px;
+    position: relative;
+  }
+  .hero-btn {
+    display: inline-block;
+    background: #fff;
+    color: #2d5a3d;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 13px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    transition: transform 0.15s ease;
+  }
+  .hero-btn:hover { transform: translateY(-1px); }
+  .hero-location {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 1.2rem;
+    position: relative;
+  }
+  .hero-location i { vertical-align: -2px; }
+
+  .section { margin-bottom: 3rem; }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888780;
+    margin-bottom: 1rem;
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  .pillar-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 1.4rem 1rem;
+    text-align: center;
+  }
+  .pillar-icon { font-size: 24px; color: #2d5a3d; margin-bottom: 10px; }
+  .pillar-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+  .pillar-desc { font-size: 12px; color: #5f5e5a; line-height: 1.4; }
+
+  .about-block {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .about-avatar {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: #2d5a3d;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .about-text h3 { font-size: 17px; font-weight: 500; margin-bottom: 6px; }
+  .about-text p { font-size: 14px; color: #5f5e5a; line-height: 1.6; }
+
+  .trip-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 12px;
+  }
+  .trip-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    gap: 12px;
+  }
+  .trip-name { font-size: 15px; font-weight: 500; }
+  .trip-badge {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    background: #e1f5ee;
+    color: #0f6e56;
+    white-space: nowrap;
+  }
+  .trip-badge.full { background: #faeeda; color: #854f0b; }
+  .trip-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+    color: #5f5e5a;
+  }
+  .trip-meta i { vertical-align: -2px; margin-right: 4px; }
+
+  .cta-block {
+    background: #2d5a3d;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    color: white;
+  }
+  .cta-block h2 { font-size: 22px; font-weight: 500; margin-bottom: 0.5rem; }
+  .cta-block p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    margin: 0 auto 1.5rem;
+    line-height: 1.5;
+    max-width: 400px;
+  }
+  .cta-input-row {
+    display: flex;
+    gap: 8px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .cta-input-row input {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    font-family: inherit;
+  }
+  .cta-input-row button {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s ease;
+  }
+  .cta-input-row button:hover { background: rgba(255,255,255,0.3); }
+
+  .footer {
+    text-align: center;
+    font-size: 12px;
+    color: #888780;
+    padding: 2rem 0 0.5rem;
+  }
+
+  @media (max-width: 500px) {
+    .hero h1 { font-size: 2.1rem; }
+    .hero { padding: 3rem 1.25rem 2.5rem; }
+    .cta-input-row { flex-direction: column; }
+    .trip-meta { gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-tag">Women only · Netherlands</div>
+    <h1>Josi Adventure</h1>
+    <p class="hero-sub">Micro adventures in nature for women. Hiking, camping, breathwork and real disconnection — just a few hours from home.</p>
+    <a href="#upcoming" class="hero-btn">See upcoming trips</a>
+    <div class="hero-location"><i class="ti ti-map-pin" aria-hidden="true"></i> Dutch nature, year-round</div>
+  </div>
+
+  <div class="section">
+    <p class="section-label">What we're about</p>
+    <div class="pillars">
+      <div class="pillar-card">
+        <div class="pillar-icon"><i class="ti ti-walk" aria-hidden="true"></i></div>
+        <div class="pillar-title">Hiking</div>
+        <div class="pillar-desc">Slow trails through forests and heathland</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon"><i class="ti ti-moon" aria-hidden="true"></i></div>
+        <div class="pillar-title">Camping</div>
+        <div class="pillar-desc">Sleep under the stars, wake up to birdsong</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon"><i class="ti ti-wind" aria-hidden="true"></i></div>
+        <div class="pillar-title">Breathwork</div>
+        <div class="pillar-desc">Guided sessions to ground and reset</div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon"><i class="ti ti-device-mobile-off" aria-hidden="true"></i></div>
+        <div class="pillar-title">Disconnect</div>
+        <div class="pillar-desc">Leave the screen, find your rhythm again</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-label">About</p>
+    <div class="about-block">
+      <div class="about-avatar"><i class="ti ti-leaf" aria-hidden="true"></i></div>
+      <div class="about-text">
+        <h3>Made for women, by a woman</h3>
+        <p>Josi Adventure was born from the belief that every woman deserves a safe, welcoming space to explore the outdoors — no experience needed, no pressure, just nature and good company.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="upcoming">
+    <p class="section-label">Upcoming trips</p>
+
+    <div class="trip-card">
+      <div class="trip-header">
+        <div class="trip-name">Veluwe Forest Overnight</div>
+        <span class="trip-badge">3 spots left</span>
+      </div>
+      <div class="trip-meta">
+        <span><i class="ti ti-calendar" aria-hidden="true"></i>14–15 June</span>
+        <span><i class="ti ti-clock" aria-hidden="true"></i>1 night</span>
+        <span><i class="ti ti-users" aria-hidden="true"></i>8 women max</span>
+      </div>
+    </div>
+
+    <div class="trip-card">
+      <div class="trip-header">
+        <div class="trip-name">Drentsche Aa Sunrise Hike</div>
+        <span class="trip-badge full">Almost full</span>
+      </div>
+      <div class="trip-meta">
+        <span><i class="ti ti-calendar" aria-hidden="true"></i>5 July</span>
+        <span><i class="ti ti-clock" aria-hidden="true"></i>Day trip</span>
+        <span><i class="ti ti-users" aria-hidden="true"></i>6 women max</span>
+      </div>
+    </div>
+
+    <div class="trip-card">
+      <div class="trip-header">
+        <div class="trip-name">Hoge Veluwe Breathwork &amp; Camp</div>
+        <span class="trip-badge">Open</span>
+      </div>
+      <div class="trip-meta">
+        <span><i class="ti ti-calendar" aria-hidden="true"></i>2–3 August</span>
+        <span><i class="ti ti-clock" aria-hidden="true"></i>1 night</span>
+        <span><i class="ti ti-users" aria-hidden="true"></i>10 women max</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <h2>Stay in the loop</h2>
+    <p>New trips sell out fast. Drop your email and be the first to hear about upcoming adventures.</p>
+    <div class="cta-input-row">
+      <input type="email" placeholder="your@email.com" aria-label="Email address" />
+      <button onclick="alert('Thanks! We\u2019ll be in touch soon.')">Notify me</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2026 Josi Adventure · Netherlands · Made with love for the outdoors
+  </div>
+
+</div>
+
+</body>
+</html>
