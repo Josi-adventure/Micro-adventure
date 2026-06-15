@@ -3,331 +3,806 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Josi Adventure — Micro adventures in nature for women</title>
-<meta name="description" content="Josi Adventure organizes micro adventures in the Netherlands for women — hiking, camping, breathwork and real disconnection from everyday life." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
+<title>JOSI Outdoor — Your first micro-adventure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700;9..144,900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --green: #2F4A43;
+    --green-deep: #243832;
+    --cream: #F5F1E4;
+    --cream-warm: #EEE7D2;
+    --burgundy: #6B1F1C;
+    --sky: #A8C9E8;
+    --ink: #1B2823;
+    --muted: #5B6661;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #f7f5f0;
-    color: #2c2c2a;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
     line-height: 1.6;
-    min-height: 100vh;
+    font-weight: 400;
+    font-size: 17px;
   }
-  .container { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 2rem; }
-
-  .hero {
-    background: #2d5a3d;
-    color: white;
-    padding: 4.5rem 2rem 3.5rem;
-    text-align: center;
-    border-radius: 16px;
-    margin-bottom: 2.5rem;
-    position: relative;
-    overflow: hidden;
+  h1, h2, h3, .display {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    color: var(--green);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
   }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 20px);
-  }
-  .hero-tag {
-    display: inline-block;
-    background: rgba(255,255,255,0.15);
-    color: rgba(255,255,255,0.9);
-    font-size: 12px;
-    letter-spacing: 2px;
+  h2 { font-size: clamp(2rem, 4.5vw, 3.4rem); margin-bottom: 1rem; }
+  h3 { font-size: 1.35rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
     text-transform: uppercase;
-    padding: 4px 14px;
-    border-radius: 20px;
-    margin-bottom: 1.2rem;
+    letter-spacing: 0.22em;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--burgundy);
+    margin-bottom: 1.25rem;
+    display: inline-block;
+  }
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .narrow { max-width: 760px; margin: 0 auto; }
+
+  /* NAV */
+  nav {
+    padding: 1.5rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 1.4rem;
+    color: var(--green);
+    letter-spacing: -0.02em;
+  }
+  .logo span {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+  }
+  .nav-cta {
+    background: var(--green);
+    color: var(--cream);
+    padding: 0.7rem 1.4rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--green-deep); }
+
+  /* HERO */
+  .hero {
+    padding: 4rem 0 6rem;
     position: relative;
   }
   .hero h1 {
-    font-size: 2.8rem;
-    font-weight: 500;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    position: relative;
+    font-size: clamp(2.6rem, 7vw, 5.5rem);
+    margin-bottom: 1.5rem;
+    max-width: 14ch;
   }
-  .hero-sub {
-    font-size: 1.1rem;
-    color: rgba(255,255,255,0.8);
-    margin: 0 auto 2rem;
-    line-height: 1.6;
-    max-width: 480px;
-    position: relative;
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--burgundy);
   }
-  .hero-btn {
-    display: inline-block;
-    background: #fff;
-    color: #2d5a3d;
-    font-size: 15px;
-    font-weight: 500;
-    padding: 13px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-    position: relative;
-    transition: transform 0.15s ease;
+  .hero .lead {
+    font-size: 1.2rem;
+    color: var(--muted);
+    max-width: 52ch;
+    margin-bottom: 2.5rem;
   }
-  .hero-btn:hover { transform: translateY(-1px); }
-  .hero-location {
-    font-size: 12px;
-    color: rgba(255,255,255,0.6);
-    margin-top: 1.2rem;
-    position: relative;
-  }
-  .hero-location i { vertical-align: -2px; }
-
-  .section { margin-bottom: 3rem; }
-  .section-label {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #888780;
-    margin-bottom: 1rem;
-  }
-
-  .pillars {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
-  }
-  .pillar-card {
-    background: #fff;
-    border: 1px solid rgba(0,0,0,0.06);
-    border-radius: 12px;
-    padding: 1.4rem 1rem;
-    text-align: center;
-  }
-  .pillar-icon { font-size: 24px; color: #2d5a3d; margin-bottom: 10px; }
-  .pillar-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
-  .pillar-desc { font-size: 12px; color: #5f5e5a; line-height: 1.4; }
-
-  .about-block {
-    background: #fff;
-    border-radius: 12px;
-    padding: 1.5rem;
+  .hero-actions {
     display: flex;
-    gap: 1.2rem;
-    align-items: flex-start;
-    border: 1px solid rgba(0,0,0,0.06);
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
   }
-  .about-avatar {
-    width: 52px; height: 52px;
-    border-radius: 50%;
-    background: #2d5a3d;
-    color: white;
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.8rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: transform 0.2s, background 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--green);
+    color: var(--cream);
+  }
+  .btn-primary:hover { background: var(--green-deep); transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--green);
+    border: 1.5px solid var(--green);
+  }
+  .btn-secondary:hover { background: var(--green); color: var(--cream); }
+
+  .hero-image {
+    margin-top: 4rem;
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-deep) 100%);
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
-    flex-shrink: 0;
+    color: var(--cream);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    position: relative;
+    overflow: hidden;
   }
-  .about-text h3 { font-size: 17px; font-weight: 500; margin-bottom: 6px; }
-  .about-text p { font-size: 14px; color: #5f5e5a; line-height: 1.6; }
+  .hero-image::before {
+    content: 'Hero image placeholder';
+    opacity: 0.5;
+  }
 
-  .trip-card {
-    background: #fff;
-    border: 1px solid rgba(0,0,0,0.06);
-    border-radius: 12px;
-    padding: 1.25rem;
-    margin-bottom: 12px;
+  /* SECTIONS */
+  section { padding: 6rem 0; }
+  section.tight { padding: 4rem 0; }
+
+  /* STORY */
+  .story {
+    background: var(--cream-warm);
   }
-  .trip-header {
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .story-text p {
+    margin-bottom: 1.2rem;
+    color: var(--ink);
+  }
+  .story-text .quotes {
+    border-left: 2px solid var(--burgundy);
+    padding-left: 1.25rem;
+    margin: 1.5rem 0;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--green);
+  }
+  .story-text .quotes p {
+    margin-bottom: 0.4rem;
+    font-size: 1.05rem;
+  }
+  .image-placeholder {
+    aspect-ratio: 4 / 5;
+    background: var(--green);
+    border-radius: 16px;
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    opacity: 0.95;
+  }
+  .image-placeholder small {
+    opacity: 0.7;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-style: normal;
+  }
+
+  /* WHAT YOU DO - cards grid */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .card {
+    background: var(--cream-warm);
+    padding: 2rem;
+    border-radius: 16px;
+    transition: transform 0.2s;
+  }
+  .card:hover { transform: translateY(-3px); }
+  .card .num {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    color: var(--burgundy);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    display: block;
+    line-height: 1;
+  }
+  .card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--green);
+    margin-bottom: 0.5rem;
+  }
+  .card p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  .section-intro {
+    max-width: 60ch;
+    color: var(--muted);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+  }
+
+  /* FOR WHO */
+  .for-who {
+    background: var(--green);
+    color: var(--cream);
+  }
+  .for-who h2, .for-who .eyebrow { color: var(--cream); }
+  .for-who .eyebrow { color: var(--sky); }
+  .for-who .section-intro { color: rgba(245, 241, 228, 0.75); }
+  .checklist {
+    list-style: none;
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem 2.5rem;
+  }
+  .checklist li {
+    padding-left: 2.2rem;
+    position: relative;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    padding-top: 0.1rem;
+  }
+  .checklist li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.4rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    background: var(--sky);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F4A43' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='5 12 10 17 19 7'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+  }
+  .for-who .pull {
+    margin-top: 3rem;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--sky);
+    text-align: center;
+  }
+
+  /* DIFFERENT */
+  .different-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+    align-items: start;
+  }
+  .feature {
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(47, 74, 67, 0.15);
+  }
+  .feature:last-child { border-bottom: 1px solid rgba(47, 74, 67, 0.15); }
+  .feature h3 {
+    color: var(--green);
+    font-family: 'Fraunces', serif;
+    font-size: 1.25rem;
+    margin-bottom: 0.4rem;
+  }
+  .feature p { color: var(--muted); font-size: 0.97rem; }
+
+  /* INCLUDED */
+  .included {
+    background: var(--cream-warm);
+  }
+  .included-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .included-list {
+    list-style: none;
+  }
+  .included-list li {
+    padding: 1.1rem 0;
+    border-bottom: 1px solid rgba(47, 74, 67, 0.15);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 1.02rem;
+  }
+  .included-list li:first-child { border-top: 1px solid rgba(47, 74, 67, 0.15); }
+  .check {
+    flex-shrink: 0;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    background: var(--green);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.15rem;
+  }
+  .check svg { width: 0.8rem; height: 0.8rem; }
+
+  /* PRACTICAL */
+  .practical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .detail {
+    text-align: left;
+    padding: 1.75rem;
+    background: var(--cream-warm);
+    border-radius: 14px;
+  }
+  .detail .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--burgundy);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .detail .value {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--green);
+    line-height: 1.15;
+  }
+
+  /* SOCIAL PROOF */
+  .social {
+    background: var(--green);
+    color: var(--cream);
+    text-align: center;
+  }
+  .social h2 { color: var(--cream); }
+  .big-number {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(5rem, 14vw, 9rem);
+    line-height: 1;
+    color: var(--sky);
+    margin: 1.5rem 0;
+    letter-spacing: -0.03em;
+  }
+  .social p {
+    max-width: 50ch;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    color: rgba(245, 241, 228, 0.85);
+  }
+
+  /* FAQ */
+  .faq-list {
+    margin-top: 3rem;
+    max-width: 760px;
+  }
+  details {
+    border-bottom: 1px solid rgba(47, 74, 67, 0.18);
+    padding: 1.3rem 0;
+  }
+  details:first-of-type { border-top: 1px solid rgba(47, 74, 67, 0.18); }
+  summary {
+    cursor: pointer;
+    list-style: none;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 10px;
-    gap: 12px;
+    align-items: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--green);
   }
-  .trip-name { font-size: 15px; font-weight: 500; }
-  .trip-badge {
-    font-size: 11px;
-    padding: 3px 10px;
-    border-radius: 12px;
-    background: #e1f5ee;
-    color: #0f6e56;
-    white-space: nowrap;
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: '+';
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    color: var(--burgundy);
+    transition: transform 0.2s;
   }
-  .trip-badge.full { background: #faeeda; color: #854f0b; }
-  .trip-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    font-size: 13px;
-    color: #5f5e5a;
+  details[open] summary::after { transform: rotate(45deg); }
+  details p {
+    margin-top: 0.9rem;
+    color: var(--muted);
+    line-height: 1.6;
   }
-  .trip-meta i { vertical-align: -2px; margin-right: 4px; }
 
-  .cta-block {
-    background: #2d5a3d;
-    border-radius: 16px;
-    padding: 2.5rem 2rem;
+  /* CTA */
+  .final-cta {
+    background: var(--burgundy);
+    color: var(--cream);
     text-align: center;
-    color: white;
   }
-  .cta-block h2 { font-size: 22px; font-weight: 500; margin-bottom: 0.5rem; }
-  .cta-block p {
-    font-size: 14px;
-    color: rgba(255,255,255,0.75);
-    margin: 0 auto 1.5rem;
-    line-height: 1.5;
-    max-width: 400px;
+  .final-cta h2 { color: var(--cream); }
+  .final-cta .eyebrow { color: var(--sky); }
+  .final-cta p {
+    max-width: 50ch;
+    margin: 1rem auto 2.5rem;
+    color: rgba(245, 241, 228, 0.85);
+    font-size: 1.15rem;
   }
-  .cta-input-row {
-    display: flex;
-    gap: 8px;
-    max-width: 400px;
-    margin: 0 auto;
+  .final-cta .btn-primary {
+    background: var(--cream);
+    color: var(--burgundy);
   }
-  .cta-input-row input {
-    flex: 1;
-    padding: 12px 16px;
-    border-radius: 8px;
-    border: none;
-    font-size: 14px;
-    font-family: inherit;
-  }
-  .cta-input-row button {
-    background: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.4);
-    color: white;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-family: inherit;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: background 0.15s ease;
-  }
-  .cta-input-row button:hover { background: rgba(255,255,255,0.3); }
+  .final-cta .btn-primary:hover { background: white; }
 
-  .footer {
+  /* FORM EMBED */
+  .form-section { background: var(--cream-warm); }
+  .form-wrap {
+    max-width: 720px;
+    margin: 3rem auto 0;
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 2.5rem;
     text-align: center;
-    font-size: 12px;
-    color: #888780;
-    padding: 2rem 0 0.5rem;
+    border: 2px dashed rgba(47, 74, 67, 0.25);
+  }
+  .form-wrap iframe {
+    width: 100%;
+    border: 0;
+    min-height: 600px;
+  }
+  .form-wrap .placeholder-note {
+    color: var(--muted);
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+  }
+  .form-wrap .placeholder-note code {
+    display: block;
+    background: var(--cream-warm);
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    font-family: monospace;
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--green-deep);
+    word-break: break-all;
   }
 
-  @media (max-width: 500px) {
-    .hero h1 { font-size: 2.1rem; }
-    .hero { padding: 3rem 1.25rem 2.5rem; }
-    .cta-input-row { flex-direction: column; }
-    .trip-meta { gap: 10px; }
+  /* FOOTER */
+  footer {
+    background: var(--green-deep);
+    color: rgba(245, 241, 228, 0.7);
+    padding: 3rem 0 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  footer .logo { color: var(--cream); margin-bottom: 1rem; display: inline-block; }
+  footer a { color: var(--sky); text-decoration: none; }
+
+  /* WEEKEND (editorial rows) */
+  .weekend-intro { max-width: 760px; margin-bottom: 4rem; }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 5rem;
+  }
+  .row:last-child { margin-bottom: 0; }
+  .row-reverse .row-text { order: 2; }
+  .row-reverse .row-image { order: 1; }
+  .row-text h3 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+    color: var(--green);
+    margin-bottom: 1rem;
+    line-height: 1.15;
+    font-weight: 700;
+  }
+  .row-text p {
+    color: var(--ink);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  .row-tag {
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--burgundy);
+    margin-bottom: 0.9rem;
+  }
+  .row-image .image-placeholder { aspect-ratio: 4 / 5; }
+
+  /* FOR-WHO narrative */
+  .for-who h2 em {
+    font-style: italic;
+    color: var(--sky);
+    font-weight: 400;
+  }
+  .for-who-body {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: rgba(245, 241, 228, 0.85);
+    margin-top: 1.5rem;
+  }
+  .for-who .pull {
+    margin-top: 2.5rem;
+    text-align: left;
+  }
+
+  /* INCLUDED pillars */
+  .included-lead {
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: var(--muted);
+    margin: 1rem 0 2rem;
+  }
+  .included-pillars { display: flex; flex-direction: column; gap: 1.5rem; }
+  .pillar {
+    background: var(--cream);
+    border-radius: 14px;
+    padding: 1.6rem 1.75rem;
+    border-left: 3px solid var(--burgundy);
+  }
+  .pillar h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    color: var(--green);
+    margin-bottom: 0.4rem;
+  }
+  .pillar p {
+    font-size: 0.98rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* FORM lead */
+  .form-lead {
+    color: var(--muted);
+    font-size: 1.08rem;
+    max-width: 50ch;
+    margin: 1rem auto 0;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 800px) {
+    section { padding: 4rem 0; }
+    .included-grid, .row { grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3.5rem; }
+    .row-reverse .row-text { order: 1; }
+    .row-reverse .row-image { order: 2; }
+    .hero { padding: 2rem 0 4rem; }
+    body { font-size: 16px; }
+    .image-placeholder { aspect-ratio: 4/3; }
   }
 </style>
 </head>
 <body>
 
-<div class="container">
+<nav>
+  <div class="logo">JOSI<span>Outdoor</span></div>
+  <a href="#signup" class="nav-cta">Sign up</a>
+</nav>
 
-  <div class="hero">
-    <div class="hero-tag">Women only · Netherlands</div>
-    <h1>Josi Adventure</h1>
-    <p class="hero-sub">Micro adventures in nature for women. Hiking, camping, breathwork and real disconnection — just a few hours from home.</p>
-    <a href="#upcoming" class="hero-btn">See upcoming trips</a>
-    <div class="hero-location"><i class="ti ti-map-pin" aria-hidden="true"></i> Dutch nature, year-round</div>
-  </div>
-
-  <div class="section">
-    <p class="section-label">What we're about</p>
-    <div class="pillars">
-      <div class="pillar-card">
-        <div class="pillar-icon"><i class="ti ti-walk" aria-hidden="true"></i></div>
-        <div class="pillar-title">Hiking</div>
-        <div class="pillar-desc">Slow trails through forests and heathland</div>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-icon"><i class="ti ti-moon" aria-hidden="true"></i></div>
-        <div class="pillar-title">Camping</div>
-        <div class="pillar-desc">Sleep under the stars, wake up to birdsong</div>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-icon"><i class="ti ti-wind" aria-hidden="true"></i></div>
-        <div class="pillar-title">Breathwork</div>
-        <div class="pillar-desc">Guided sessions to ground and reset</div>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-icon"><i class="ti ti-device-mobile-off" aria-hidden="true"></i></div>
-        <div class="pillar-title">Disconnect</div>
-        <div class="pillar-desc">Leave the screen, find your rhythm again</div>
-      </div>
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <span class="eyebrow">Micro-adventures for women</span>
+    <h1>Your first wild camping experience — <em>together</em>, not alone.</h1>
+    <p class="lead">Spend a weekend hiking with everything on your back, sleeping in nature, and discovering how much you're capable of.</p>
+    <div class="hero-actions">
+      <a href="#signup" class="btn btn-primary">Sign up — I'm in →</a>
+      <a href="#what" class="btn btn-secondary">See what we'll do</a>
+    </div>
+    <div class="hero-image">
+      <small style="opacity:0.7;font-family:'Inter',sans-serif;font-style:normal;font-size:0.85rem;">[ HERO IMAGE — tent at golden hour ]</small>
     </div>
   </div>
+</header>
 
-  <div class="section">
-    <p class="section-label">About</p>
-    <div class="about-block">
-      <div class="about-avatar"><i class="ti ti-leaf" aria-hidden="true"></i></div>
-      <div class="about-text">
-        <h3>Made for women, by a woman</h3>
-        <p>Josi Adventure was born from the belief that every woman deserves a safe, welcoming space to explore the outdoors — no experience needed, no pressure, just nature and good company.</p>
-      </div>
+<!-- WHAT IS A MICRO-ADVENTURE -->
+<section id="what" class="weekend">
+  <div class="container">
+    <div class="weekend-intro">
+      <span class="eyebrow">The weekend</span>
+      <h2>What it actually feels like.</h2>
+      <p class="section-intro">No experience needed. Just curiosity, a pair of legs that walk, and a willingness to be a little uncomfortable in the best way.</p>
     </div>
-  </div>
 
-  <div class="section" id="upcoming">
-    <p class="section-label">Upcoming trips</p>
-
-    <div class="trip-card">
-      <div class="trip-header">
-        <div class="trip-name">Veluwe Forest Overnight</div>
-        <span class="trip-badge">3 spots left</span>
+    <div class="row">
+      <div class="row-text">
+        <p class="row-tag">Friday afternoon</p>
+        <h3>You arrive with your pack.</h3>
+        <p>We meet, drop the awkward small talk, and walk into the trees together. Everything you need for the next two days is on your back — and after the first hour you'll be surprised how little that actually is.</p>
       </div>
-      <div class="trip-meta">
-        <span><i class="ti ti-calendar" aria-hidden="true"></i>14–15 June</span>
-        <span><i class="ti ti-clock" aria-hidden="true"></i>1 night</span>
-        <span><i class="ti ti-users" aria-hidden="true"></i>8 women max</span>
+      <div class="row-image">
+        <div class="image-placeholder"><small>[ Image — trailhead, women shouldering packs ]</small></div>
       </div>
     </div>
 
-    <div class="trip-card">
-      <div class="trip-header">
-        <div class="trip-name">Drentsche Aa Sunrise Hike</div>
-        <span class="trip-badge full">Almost full</span>
+    <div class="row row-reverse">
+      <div class="row-text">
+        <p class="row-tag">Saturday evening</p>
+        <h3>Dinner cooks on a tiny stove.</h3>
+        <p>Tents are up, the kettle's on, and someone has just filtered water from a stream — which still feels a bit like magic. We share food and stories around the stove, then a card game until the light goes. The night sky does the rest.</p>
       </div>
-      <div class="trip-meta">
-        <span><i class="ti ti-calendar" aria-hidden="true"></i>5 July</span>
-        <span><i class="ti ti-clock" aria-hidden="true"></i>Day trip</span>
-        <span><i class="ti ti-users" aria-hidden="true"></i>6 women max</span>
+      <div class="row-image">
+        <div class="image-placeholder"><small>[ Image — camp dinner, golden light ]</small></div>
       </div>
     </div>
 
-    <div class="trip-card">
-      <div class="trip-header">
-        <div class="trip-name">Hoge Veluwe Breathwork &amp; Camp</div>
-        <span class="trip-badge">Open</span>
+    <div class="row">
+      <div class="row-text">
+        <p class="row-tag">Sunday morning</p>
+        <h3>Coffee circle in the grass.</h3>
+        <p>Slow start. Hot coffee, no phones, a small gratitude moment before we pack down. By the time we walk out, something has shifted — you've slept outside, carried your own life on your shoulders, and made the kind of friends that text you about the next trip before this one is over.</p>
       </div>
-      <div class="trip-meta">
-        <span><i class="ti ti-calendar" aria-hidden="true"></i>2–3 August</span>
-        <span><i class="ti ti-clock" aria-hidden="true"></i>1 night</span>
-        <span><i class="ti ti-users" aria-hidden="true"></i>10 women max</span>
+      <div class="row-image">
+        <div class="image-placeholder"><small>[ Image — morning coffee circle ]</small></div>
       </div>
     </div>
   </div>
+</section>
 
-  <div class="cta-block">
-    <h2>Stay in the loop</h2>
-    <p>New trips sell out fast. Drop your email and be the first to hear about upcoming adventures.</p>
-    <div class="cta-input-row">
-      <input type="email" placeholder="your@email.com" aria-label="Email address" />
-      <button onclick="alert('Thanks! We\u2019ll be in touch soon.')">Notify me</button>
+<!-- FOR WHO -->
+<section class="for-who">
+  <div class="container narrow">
+    <span class="eyebrow">Who it's for</span>
+    <h2>If you've ever thought <em>"I'd love to do that"</em> — this is for you.</h2>
+    <p class="for-who-body">Maybe you save every wild-camping post you see, but you've never actually slept outside. Maybe you'd go tomorrow if a friend asked, but no one is asking. Maybe the gear list looks intimidating, or maybe you just don't want to figure it all out by yourself.</p>
+    <p class="for-who-body">You don't need to be super fit. You don't need to own a single piece of kit. You don't need to have done this before. You only need to be curious — and to want, even a little, to surprise yourself.</p>
+    <p class="pull">That's it. That's the whole requirement.</p>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="included">
+  <div class="container">
+    <div class="included-grid">
+      <div>
+        <span class="eyebrow">What you get</span>
+        <h2>Everything sorted, so you can just show up.</h2>
+        <p class="included-lead">You don't have to plan the route, pick the spot, or worry about whether you're packing the right things. I've done all of that — so the only thing left for you is to say yes and turn up.</p>
+        <div class="included-pillars">
+          <div class="pillar">
+            <h3>Before the weekend</h3>
+            <p>A personal packing list, advice on what to borrow or skip, and an optional group call so you arrive knowing me and the other women.</p>
+          </div>
+          <div class="pillar">
+            <h3>During the weekend</h3>
+            <p>A scouted route, a wild spot to camp, a small mini-workshop on solo camping, and me — there the whole time so you're never figuring it out alone.</p>
+          </div>
+          <div class="pillar">
+            <h3>The little things</h3>
+            <p>A WhatsApp group to land in, help organising a carpool, an opening circle, card games at camp, and a slow morning coffee before we walk out.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="image-placeholder">
+          <small>[ Image — coffee circle in the morning ]</small>
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-  <div class="footer">
-    © 2026 Josi Adventure · Netherlands · Made with love for the outdoors
+<!-- PRACTICAL -->
+<section>
+  <div class="container">
+    <span class="eyebrow">Good to know</span>
+    <h2>The practical bits.</h2>
+    <div class="practical-grid">
+      <div class="detail">
+        <div class="label">Location</div>
+        <div class="value">Netherlands<br/>or Belgium</div>
+      </div>
+      <div class="detail">
+        <div class="label">Group size</div>
+        <div class="value">Max. 6<br/>women</div>
+      </div>
+      <div class="detail">
+        <div class="label">Duration</div>
+        <div class="value">1–2<br/>nights</div>
+      </div>
+      <div class="detail">
+        <div class="label">Price</div>
+        <div class="value">~ €70<br/>per person</div>
+      </div>
+    </div>
   </div>
+</section>
 
-</div>
+<!-- FAQ -->
+<section>
+  <div class="container narrow">
+    <span class="eyebrow">FAQ</span>
+    <h2>Questions, answered.</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Do I need experience?</summary>
+        <p>No. This weekend is designed for beginners. If you've never wild camped before, you're exactly who this is for.</p>
+      </details>
+      <details>
+        <summary>What gear do I need?</summary>
+        <p>You'll get a full packing list once you sign up. Most items are things you might already have or can borrow. We'll talk through the essentials together before the trip.</p>
+      </details>
+      <details>
+        <summary>What if I don't have equipment?</summary>
+        <p>No problem. We help with materials advice, can point you to rental options, and in some cases gear can be borrowed or sponsored. Don't let kit be the reason you don't come.</p>
+      </details>
+      <details>
+        <summary>Is it safe?</summary>
+        <p>Yes. A host is with you the whole weekend. Routes and camping spots are scouted in advance. Small groups mean nobody gets lost in the shuffle.</p>
+      </details>
+      <details>
+        <summary>What if it rains?</summary>
+        <p>We go anyway — that's part of it. You'll be prepped with the right gear, and honestly, a rainy night in a tent makes for the best stories. If the weather is genuinely unsafe, we adapt.</p>
+      </details>
+      <details>
+        <summary>How fit do I need to be?</summary>
+        <p>If you can walk for a few hours with a pack, you're fine. Routes are chosen to be doable, not punishing.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FORM EMBED -->
+<section class="form-section" id="signup">
+  <div class="container narrow" style="text-align:center;">
+    <span class="eyebrow">I'm interested</span>
+    <h2>Tell me you're in.</h2>
+    <p class="form-lead">Drop your details below — I'll be in touch with upcoming dates and answer any question you've got. No pressure, no spam.</p>
+    <div class="form-wrap">
+      <!-- Replace the src below with your Google Form embed URL -->
+      <!-- <iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true" loading="lazy">Loading…</iframe> -->
+      <div class="placeholder-note">
+        <p>[ Google Form embed goes here ]</p>
+        <code>&lt;iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true" width="100%" height="600" frameborder="0"&gt;&lt;/iframe&gt;</code>
+        <p style="margin-top:1rem;font-size:0.85rem;font-family:'Inter',sans-serif;font-style:normal;">Replace with the embed code from your Google Form (Send → &lt;/&gt; Embed HTML).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="logo">JOSI<span>Outdoor</span></div>
+    <p>Micro-adventures for women. Based in the Netherlands.</p>
+    <p style="margin-top:0.5rem;">© 2026 JOSI Outdoor</p>
+  </div>
+</footer>
 
 </body>
 </html>
