@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>JOSI Outdoor — Micro-adventures for women</title>
+<title>JOSI Outdoor · Micro-adventures for women</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,700;9..144,0,900;9..144,1,400;9..144,1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -32,7 +32,6 @@
     font-size: 17px;
     overflow-x: hidden;
   }
-  /* subtle paper noise */
   body::before {
     content: '';
     position: fixed;
@@ -40,7 +39,7 @@
     pointer-events: none;
     z-index: 0;
     opacity: 0.35;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.15  0 0 0 0 0.15  0 0 0 0 0.15  0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.15  0 0 0 0 0.15  0 0 0 0 0.15  0 0 0 0 0.15  0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   }
   body > * { position: relative; z-index: 1; }
 
@@ -69,7 +68,7 @@
   }
   .narrow { max-width: 760px; margin: 0 auto; }
 
-  /* DECORATIVE — squiggle underline + doodles */
+  /* DECORATIVE */
   .squiggle {
     position: relative;
     display: inline-block;
@@ -84,11 +83,6 @@
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' preserveAspectRatio='none'><path d='M0,6 Q15,0 30,6 T60,6 T90,6 T120,6' stroke='%23F39A60' stroke-width='3' fill='none' stroke-linecap='round'/></svg>");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-  }
-  .doodle {
-    display: inline-block;
-    vertical-align: middle;
-    color: var(--burgundy);
   }
 
   /* WAVY DIVIDERS */
@@ -111,6 +105,7 @@
     align-items: center;
     max-width: 1180px;
     margin: 0 auto;
+    gap: 1rem;
   }
   .logo {
     font-family: 'Fraunces', serif;
@@ -128,6 +123,38 @@
     margin-left: 0.4rem;
     vertical-align: middle;
   }
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .lang-btn {
+    background: none;
+    border: 1.5px solid transparent;
+    padding: 0.35rem 0.6rem;
+    cursor: pointer;
+    font: inherit;
+    color: var(--muted);
+    border-radius: 999px;
+    transition: all 0.2s;
+    line-height: 1;
+  }
+  .lang-btn.active {
+    color: var(--green);
+    font-weight: 600;
+    border-color: var(--green);
+  }
+  .lang-btn:hover { color: var(--green); }
+  .lang-sep { color: rgba(0,0,0,0.18); padding: 0 0.1rem; }
+
   .nav-cta {
     background: var(--green);
     color: var(--cream);
@@ -211,6 +238,33 @@
   }
   .btn-secondary:hover { background: var(--green); color: var(--cream); }
 
+  /* Inline CTA — small "I'm interested" anchor below sections */
+  .inline-cta {
+    text-align: center;
+    margin-top: 3.5rem;
+  }
+  .btn-inline {
+    background: var(--burgundy);
+    color: var(--cream);
+    padding: 0.85rem 1.6rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.98rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .btn-inline:hover { background: var(--green); transform: translateY(-1px); }
+  /* for inline CTA on dark sections */
+  .for-who .btn-inline,
+  .form-section .btn-inline {
+    background: var(--orange-soft);
+    color: var(--burgundy);
+  }
+  .for-who .btn-inline:hover { background: var(--cream); color: var(--burgundy); }
+
   .hero-image {
     margin-top: 3rem;
     aspect-ratio: 16 / 9;
@@ -235,7 +289,6 @@
     display: block;
     z-index: 1;
   }
-  /* taped corners */
   .hero-image::before,
   .hero-image::after {
     content: '';
@@ -255,9 +308,7 @@
     transform: rotate(-4deg);
   }
 
-  /* SECTIONS */
   section { padding: 5.5rem 0; position: relative; }
-  section.tight { padding: 3.5rem 0; }
 
   /* WHAT IS */
   .what-is {
@@ -338,7 +389,7 @@
     font-size: 1.1rem;
   }
 
-  /* WEEKEND (editorial rows) */
+  /* WEEKEND ROWS */
   .weekend-intro { max-width: 760px; margin-bottom: 4rem; }
   .row {
     display: grid;
@@ -367,7 +418,7 @@
   .row-text p:last-child { margin-bottom: 0; }
   .row-tag {
     font-family: 'Caveat', cursive;
-    font-size: 2.2rem;
+    font-size: 2.8rem;
     font-weight: 600;
     color: var(--burgundy);
     margin-bottom: 0.6rem !important;
@@ -438,9 +489,7 @@
   }
 
   /* ABOUT ME */
-  .about-me {
-    background: var(--cream);
-  }
+  .about-me { background: var(--cream); }
   .about-grid {
     display: grid;
     grid-template-columns: 0.8fr 1fr;
@@ -504,7 +553,7 @@
     line-height: 1.75;
     margin-bottom: 1.1rem;
   }
-  .about-text p:last-child { margin-bottom: 0; }
+  .about-text p:last-of-type { margin-bottom: 0; }
   .about-text .signature {
     font-family: 'Caveat', cursive;
     font-size: 1.8rem;
@@ -515,9 +564,7 @@
   }
 
   /* INCLUDED */
-  .included {
-    background: var(--cream-warm);
-  }
+  .included { background: var(--cream-warm); }
   .included-grid {
     display: grid;
     grid-template-columns: 1.1fr 1fr;
@@ -609,9 +656,6 @@
     font-size: 1.3rem;
     color: var(--green);
     margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
   }
   .incl-col.no h3 { color: var(--burgundy); }
   .incl-col ul { list-style: none; }
@@ -679,7 +723,7 @@
     line-height: 1.65;
   }
 
-  /* FORM EMBED */
+  /* FORM */
   .form-section {
     background: var(--burgundy);
     color: var(--cream);
@@ -709,23 +753,7 @@
     border: 0;
     display: block;
     border-radius: 12px;
-  }
-  .form-wrap .placeholder-note {
-    color: var(--muted);
-    font-style: italic;
-    font-family: 'Fraunces', serif;
-  }
-  .form-wrap .placeholder-note code {
-    display: block;
-    background: var(--cream-warm);
-    padding: 0.75rem;
-    border-radius: 8px;
-    margin-top: 1rem;
-    font-family: monospace;
-    font-style: normal;
-    font-size: 0.85rem;
-    color: var(--green-deep);
-    word-break: break-all;
+    margin-top: -180px;
   }
 
   /* FOOTER */
@@ -751,9 +779,12 @@
     .hero-decor.sun, .hero-decor.mountain { display: none; }
     body { font-size: 16px; }
     .image-placeholder { aspect-ratio: 4/3; }
+    .row-tag { font-size: 2.2rem; }
+    nav { flex-wrap: wrap; }
   }
   @media (max-width: 500px) {
     .what-is .micro-grid { grid-template-columns: 1fr 1fr; }
+    .nav-cta { padding: 0.6rem 1rem; font-size: 0.85rem; }
   }
 </style>
 </head>
@@ -761,29 +792,34 @@
 
 <nav>
   <div class="logo">JOSI<span>Outdoor</span></div>
-  <a href="#signup" class="nav-cta">I'm interested</a>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="nl">NL</button>
+    </div>
+    <a href="#signup" class="nav-cta" data-i18n="nav.cta">I'm interested</a>
+  </div>
 </nav>
 
 <!-- HERO -->
 <header class="hero">
   <div class="container">
-    <!-- decorative sun -->
     <svg class="hero-decor sun" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
       <circle cx="50" cy="50" r="18"/>
       <path d="M50 8 V20 M50 80 V92 M8 50 H20 M80 50 H92 M20 20 L28 28 M72 72 L80 80 M80 20 L72 28 M20 80 L28 72"/>
     </svg>
-    <!-- decorative mountain -->
     <svg class="hero-decor mountain" viewBox="0 0 100 60" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
       <path d="M5 55 L25 25 L40 40 L55 15 L75 40 L95 55 Z"/>
       <path d="M50 22 L52 18 L55 22" />
     </svg>
 
-    <span class="eyebrow">Micro-adventures for women</span>
-    <h1>Wild camping weekends — <em>together</em>, never alone.</h1>
-    <p class="lead">Spend a weekend hiking with everything on your back, sleeping in nature, and meeting women who love the outdoors as much as you do.</p>
+    <span class="eyebrow" data-i18n="hero.eyebrow">You, a backpack, and a weekend off-grid</span>
+    <h1 data-i18n="hero.h1">Micro-adventures, made for women.</h1>
+    <p class="lead" data-i18n="hero.lead">Spend a weekend hiking with everything on your back, sleeping in nature, and meeting women who love the outdoors as much as you do.</p>
     <div class="hero-actions">
-      <a href="#signup" class="btn btn-primary">I'm interested →</a>
-      <a href="#what" class="btn btn-secondary">See what we'll do</a>
+      <a href="#signup" class="btn btn-primary" data-i18n="hero.cta1">I'm interested →</a>
+      <a href="#what" class="btn btn-secondary" data-i18n="hero.cta2">See what we'll do</a>
     </div>
     <div class="hero-image">
       <img src="images/hero.jpg" alt="Wild camping at golden hour" onerror="this.remove()" />
@@ -792,34 +828,33 @@
   </div>
 </header>
 
-<!-- wave into next section -->
-<div class="divider">
-  <svg viewBox="0 0 1200 48" preserveAspectRatio="none">
-    <path d="M0,24 Q150,0 300,24 T600,24 T900,24 T1200,24 V48 H0 Z" fill="#E5DFC9"/>
-  </svg>
-</div>
+<div class="divider"><svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 Q150,0 300,24 T600,24 T900,24 T1200,24 V48 H0 Z" fill="#E5DFC9"/></svg></div>
 
 <!-- WHAT IS A MICRO-ADVENTURE -->
 <section class="what-is" id="what">
   <div class="container">
-    <span class="eyebrow">A micro-adventure?</span>
-    <h2>So, what's a <span class="squiggle">micro-adventure</span>?</h2>
-    <p class="section-intro">A short, simple, low-stakes trip into nature. Big enough to feel like a real adventure — small enough to fit into a weekend.</p>
+    <span class="eyebrow" data-i18n="whatIs.eyebrow">A micro-adventure?</span>
+    <h2 data-i18n="whatIs.h2">So, what's a <span class="squiggle">micro-adventure</span>?</h2>
+    <p class="section-intro" data-i18n="whatIs.intro">A short, simple, low-stakes trip into nature. Big enough to feel like a real adventure, small enough to fit into a weekend.</p>
     <div class="micro-grid">
       <div class="micro-item">
         <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M16 8 L20 8 L24 24 L20 40 L14 40 L10 24 Z"/>
-          <path d="M28 8 L32 8 L36 24 L32 40 L26 40 L24 24"/>
-          <path d="M10 28 L36 28"/>
+          <!-- backpack -->
+          <path d="M19 10 C19 6 29 6 29 10"/>
+          <path d="M22 7 H26"/>
+          <path d="M14 14 H34 V40 C34 41 33 42 32 42 H16 C15 42 14 41 14 40 Z"/>
+          <path d="M18 14 V11 C18 9.5 19 9 21 9 H27 C29 9 30 9.5 30 11 V14"/>
+          <rect x="19" y="22" width="10" height="9" rx="1"/>
+          <path d="M24 22 V31"/>
         </svg>
-        <h3>Hike 2–3 days with everything on your back</h3>
+        <h3 data-i18n="whatIs.item1">Hike 2–3 days with everything on your back</h3>
       </div>
       <div class="micro-item">
         <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M24 6 C18 16 12 22 12 30 a12 12 0 0 0 24 0 c0-8-6-14-12-24 Z"/>
           <path d="M18 30 a6 6 0 0 0 6 6"/>
         </svg>
-        <h3>Filter our own water</h3>
+        <h3 data-i18n="whatIs.item2">Filter our own water</h3>
       </div>
       <div class="micro-item">
         <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -827,7 +862,7 @@
           <path d="M24 10 L24 40"/>
           <path d="M20 40 L24 32 L28 40"/>
         </svg>
-        <h3>Sleep outside in nature</h3>
+        <h3 data-i18n="whatIs.item3">Sleep outside in nature</h3>
       </div>
       <div class="micro-item">
         <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -835,49 +870,41 @@
           <line x1="22" y1="35" x2="26" y2="35"/>
           <line x1="9" y1="9" x2="39" y2="41"/>
         </svg>
-        <h3>Being offline</h3>
+        <h3 data-i18n="whatIs.item4">Being offline</h3>
       </div>
       <div class="micro-item">
         <svg class="icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <!-- figure 1 -->
-          <circle cx="16" cy="15" r="5"/>
-          <path d="M11 17 Q8 26 11 33"/>
-          <path d="M21 17 Q24 26 21 33"/>
-          <path d="M8 40 c0-5 4-9 8-9 s8 4 8 9"/>
-          <!-- figure 2 -->
-          <circle cx="32" cy="15" r="5"/>
-          <path d="M27 17 Q24 26 27 33"/>
-          <path d="M37 17 Q40 26 37 33"/>
-          <path d="M24 40 c0-5 4-9 8-9 s8 4 8 9"/>
+          <!-- two women -->
+          <circle cx="17" cy="16" r="6"/>
+          <path d="M11 18 C8 30 12 40 14 42"/>
+          <path d="M23 18 C26 30 22 40 20 42"/>
+          <circle cx="32" cy="16" r="6"/>
+          <path d="M26 18 C23 30 27 40 29 42"/>
+          <path d="M38 18 C41 30 37 40 35 42"/>
         </svg>
-        <h3>Together with a small group of women</h3>
+        <h3 data-i18n="whatIs.item5">Together with a small group of women</h3>
       </div>
     </div>
   </div>
 </section>
 
-<!-- wave back to cream -->
-<div class="divider">
-  <svg viewBox="0 0 1200 48" preserveAspectRatio="none">
-    <path d="M0,24 Q150,48 300,24 T600,24 T900,24 T1200,24 V0 H0 Z" fill="#E5DFC9"/>
-  </svg>
-</div>
+<div class="divider"><svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 Q150,48 300,24 T600,24 T900,24 T1200,24 V0 H0 Z" fill="#E5DFC9"/></svg></div>
 
 <!-- WEEKEND ROWS -->
 <section class="weekend">
   <div class="container">
     <div class="weekend-intro" style="text-align:center; margin:0 auto 4rem;">
-      <span class="eyebrow">The weekend</span>
-      <h2>How it <em>actually</em> goes.</h2>
-      <p class="section-intro">No experience needed. Just curiosity, a pair of legs that walk, and a willingness to be a little uncomfortable in the best way.</p>
+      <span class="eyebrow" data-i18n="weekend.eyebrow">The weekend</span>
+      <h2 data-i18n="weekend.h2">How it <em>actually</em> goes.</h2>
+      <p class="section-intro" data-i18n="weekend.intro">No experience needed. Just curiosity, a pair of legs that walk, and a willingness to be a little uncomfortable in the best way.</p>
     </div>
 
     <div class="row">
       <div class="row-text">
-        <p class="row-tag">Saturday morning</p>
-        <h3>We meet at the start of the route.</h3>
-        <p>After a short introduction, one last check of the backpacks and a run-through of the plan, we head into nature together. For some it's the first time walking with everything on your back. Exciting, maybe a little nerve-wracking — which is exactly why we do it together.</p>
-        <p>We take our time, get to know each other, hike for a few hours, and stop for lunch somewhere with a view.</p>
+        <p class="row-tag" data-i18n="weekend.sat1.tag">Saturday morning</p>
+        <h3 data-i18n="weekend.sat1.h3">We meet at the start of the route.</h3>
+        <p data-i18n="weekend.sat1.p1">After a short introduction, one last check of the backpacks and a run-through of the plan, we head into nature together. For some it's the first time walking with everything on your back. Exciting, maybe a little nerve-wracking, which is exactly why we do it together.</p>
+        <p data-i18n="weekend.sat1.p2">We take our time, get to know each other, hike for a few hours, and stop for lunch somewhere with a view.</p>
       </div>
       <div class="row-image">
         <div class="image-placeholder">
@@ -889,10 +916,10 @@
 
     <div class="row row-reverse">
       <div class="row-text">
-        <p class="row-tag">Saturday evening</p>
-        <h3>We arrive at the wild camp.</h3>
-        <p>Tents go up, water gets filtered from the stream, and we wash off the day in the river. Then dinner cooks on a tiny stove, and we eat together as the light goes soft.</p>
-        <p>No screens. No rush. No full agenda. Just the quiet of being outside, good conversation, and the strange, beautiful experience of falling asleep under the stars.</p>
+        <p class="row-tag" data-i18n="weekend.sat2.tag">Saturday evening</p>
+        <h3 data-i18n="weekend.sat2.h3">We arrive at the wild camp.</h3>
+        <p data-i18n="weekend.sat2.p1">Tents go up, water gets filtered from the stream, and we wash off the day in the river. Then dinner cooks on a tiny stove, and we eat together as the light goes soft.</p>
+        <p data-i18n="weekend.sat2.p2">No screens. No rush. No full agenda. Just the quiet of being outside, good conversation, and the strange, beautiful experience of falling asleep under the stars.</p>
       </div>
       <div class="row-image">
         <div class="image-placeholder">
@@ -904,10 +931,10 @@
 
     <div class="row">
       <div class="row-text">
-        <p class="row-tag">Sunday</p>
-        <h3>We wake up in the middle of nature.</h3>
-        <p>Maybe with a coffee in the morning sun, maybe with a bit of mist between the trees. After breakfast we pack up camp and keep walking — more time for conversation, a few more skills along the way, and a lot of looking around.</p>
-        <p>By late afternoon we're back at the end of the trail. Tired legs, new memories, and already wondering when the next one is.</p>
+        <p class="row-tag" data-i18n="weekend.sun.tag">Sunday</p>
+        <h3 data-i18n="weekend.sun.h3">We wake up in the middle of nature.</h3>
+        <p data-i18n="weekend.sun.p1">Maybe with a coffee in the morning sun, maybe with a bit of mist between the trees. After breakfast we pack up camp and keep walking, more time for conversation and a lot of looking around.</p>
+        <p data-i18n="weekend.sun.p2">By late afternoon we're back at the end of the trail. Tired legs, new memories, and already wondering when the next one is.</p>
       </div>
       <div class="row-image">
         <div class="image-placeholder">
@@ -916,40 +943,37 @@
         </div>
       </div>
     </div>
+
+    <div class="inline-cta">
+      <a href="#signup" class="btn-inline" data-i18n="cta.inline">I'm interested →</a>
+    </div>
   </div>
 </section>
 
-<!-- divider -->
-<div class="divider">
-  <svg viewBox="0 0 1200 48" preserveAspectRatio="none">
-    <path d="M0,24 Q150,0 300,24 T600,24 T900,24 T1200,24 V48 H0 Z" fill="#2F4A43"/>
-  </svg>
-</div>
+<div class="divider"><svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 Q150,0 300,24 T600,24 T900,24 T1200,24 V48 H0 Z" fill="#2F4A43"/></svg></div>
 
 <!-- FOR WHO -->
 <section class="for-who">
   <div class="container narrow">
-    <span class="eyebrow">Who it's for</span>
-    <h2>This is for women who <em>want to be outside</em>.</h2>
-    <p class="for-who-body">Whether it's your first night under a tent or your fiftieth, this weekend is built for you. It's for women who feel happiest with their boots on, who collect outdoor inspiration but rarely get to live it, and who want company on the trail.</p>
+    <span class="eyebrow" data-i18n="forWho.eyebrow">Who it's for</span>
+    <h2 data-i18n="forWho.h2">This is for women who <em>want to be outside</em>.</h2>
+    <p class="for-who-body" data-i18n="forWho.body">Whether it's your first night in a tent or under the stars or your fiftieth, this weekend is built for you. It's for women who feel happiest with their boots on, who collect outdoor inspiration but rarely get to live it, and who want company on the trail.</p>
     <ul class="for-who-list">
-      <li>You want to spend more time in nature — properly, not just a Sunday walk.</li>
-      <li>You love trying small adventures: hiking, wild camping, sleeping out.</li>
-      <li>You want to explore the beauty closer to home, not just on far-away trips.</li>
-      <li>You've saved a lot of hikes on Instagram but never actually got to them.</li>
-      <li>You're after friends who want to do this kind of thing with you.</li>
-      <li>You like the idea of a weekend with no plan but good food, slow mornings, and women who get it.</li>
+      <li data-i18n="forWho.li1">You want to spend more time in nature: properly, not just a Sunday walk.</li>
+      <li data-i18n="forWho.li2">You love trying small adventures: hiking, wild camping, sleeping out.</li>
+      <li data-i18n="forWho.li3">You want to explore the beauty closer to home, not just on far-away trips.</li>
+      <li data-i18n="forWho.li4">You've saved a lot of hikes on Instagram but never actually got to them.</li>
+      <li data-i18n="forWho.li5">You're after friends who want to do this kind of thing with you.</li>
+      <li data-i18n="forWho.li6">You like the idea of a weekend with no plan but good food, slow mornings, and women who get it.</li>
     </ul>
-    <p class="pull">If even one of those felt familiar — you're in the right place.</p>
+    <p class="pull" data-i18n="forWho.pull">If even one of those felt familiar, you're in the right place.</p>
+    <div class="inline-cta">
+      <a href="#signup" class="btn-inline" data-i18n="cta.inline">I'm interested →</a>
+    </div>
   </div>
 </section>
 
-<!-- divider back -->
-<div class="divider">
-  <svg viewBox="0 0 1200 48" preserveAspectRatio="none">
-    <path d="M0,24 Q150,48 300,24 T600,24 T900,24 T1200,24 V0 H0 Z" fill="#2F4A43"/>
-  </svg>
-</div>
+<div class="divider"><svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 Q150,48 300,24 T600,24 T900,24 T1200,24 V0 H0 Z" fill="#2F4A43"/></svg></div>
 
 <!-- ABOUT ME -->
 <section class="about-me">
@@ -957,50 +981,48 @@
     <div class="about-grid">
       <div class="puck-photo-wrap">
         <div class="puck-photo">
-          <img src="images/puck.jpg" alt="Puck — founder of JOSI Outdoor" onerror="this.remove()" />
+          <img src="images/puck.jpg" alt="Puck, founder of JOSI Outdoor" onerror="this.remove()" />
           <small>images/puck.jpg</small>
         </div>
       </div>
       <div class="about-text">
-        <span class="eyebrow">About me</span>
-        <h2>Hi, I'm <em>Puck</em>.</h2>
-        <p>I've been in love with mountains, hiking trails, and sleeping under the stars for years. The kind of weekends where you walk for hours, cook dinner on a tiny stove, and fall asleep listening to the wind in the trees — those are the ones I keep coming back to.</p>
-        <p>What started as my own adventure became something I wanted to share. So I started organising small weekends for other women: to make the outdoors feel less out of reach, and a lot more fun.</p>
-        <p>If you've been waiting for the right group, or the right moment, or just someone else to plan the route — I'd love to have you along.</p>
-        <span class="signature">— Puck</span>
+        <span class="eyebrow" data-i18n="about.eyebrow">About me</span>
+        <h2 data-i18n="about.h2">Hi, I'm <em>Puck</em>.</h2>
+        <p data-i18n="about.p1">I've been in love with mountains, hiking trails, and sleeping under the stars for years. The kind of weekends where you walk for hours, cook dinner on a tiny stove, and fall asleep listening to the wind in the trees. Those are the ones I keep coming back to.</p>
+        <p data-i18n="about.p2">What started as my own adventure became something I wanted to share. So I started organising small weekends for other women: to make the outdoors feel less out of reach, and a lot more fun.</p>
+        <p data-i18n="about.p3">If you've been waiting for the right group, or the right moment, or just someone else to plan the route, I'd love to have you along.</p>
+        <span class="signature" data-i18n="about.signature">- Puck</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- divider -->
-<div class="divider">
-  <svg viewBox="0 0 1200 48" preserveAspectRatio="none">
-    <path d="M0,24 Q150,0 300,24 T600,24 T900,24 T1200,24 V48 H0 Z" fill="#EEE7D2"/>
-  </svg>
-</div>
+<div class="divider"><svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 Q150,0 300,24 T600,24 T900,24 T1200,24 V48 H0 Z" fill="#EEE7D2"/></svg></div>
 
 <!-- WHAT YOU GET -->
 <section class="included">
   <div class="container">
     <div class="included-grid">
       <div>
-        <span class="eyebrow">What you get</span>
-        <h2>Everything sorted, so you can just <span class="squiggle">show up</span>.</h2>
-        <p class="included-lead">You don't have to plan the route, pick the spot, or worry about whether you're packing the right things. I've done all of that — so the only thing left for you is to say yes and turn up.</p>
+        <span class="eyebrow" data-i18n="included.eyebrow">What you get</span>
+        <h2 data-i18n="included.h2">Everything sorted, so you can just <span class="squiggle">show up</span>.</h2>
+        <p class="included-lead" data-i18n="included.lead">You don't have to plan the route, pick the spot, or worry about whether you're packing the right things. I've got you covered, so the only thing left for you is to say yes and turn up.</p>
         <div class="included-pillars">
           <div class="pillar">
-            <h3>Before the weekend</h3>
-            <p>A personal packing list, advice on what to borrow or skip, and an optional group call so you arrive knowing me and the other women.</p>
+            <h3 data-i18n="included.p1.h">Before the weekend</h3>
+            <p data-i18n="included.p1.p">A personal packing list, advice on what to borrow or skip, and an optional group call so you arrive knowing me and the other women.</p>
           </div>
           <div class="pillar">
-            <h3>During the weekend</h3>
-            <p>A hike route, a wild spot to camp, a small mini-workshop on solo camping and gear, and full support throughout so you're never figuring it out alone.</p>
+            <h3 data-i18n="included.p2.h">During the weekend</h3>
+            <p data-i18n="included.p2.p">A hike route, a wild spot to camp, dinner on Saturday and breakfast on Sunday, and full support throughout so you're never figuring it out alone.</p>
           </div>
           <div class="pillar">
-            <h3>The little things</h3>
-            <p>A WhatsApp group to land in, help organising a carpool, an opening circle, a slow morning coffee — and a community of like-minded women that keeps going long after we walk out.</p>
+            <h3 data-i18n="included.p3.h">The little things</h3>
+            <p data-i18n="included.p3.p">A WhatsApp group to land in, help organising a carpool, an opening circle, a slow morning coffee, and a community of like-minded women that keeps going long after we walk out.</p>
           </div>
+        </div>
+        <div class="inline-cta" style="text-align:left; margin-top:2.5rem;">
+          <a href="#signup" class="btn-inline" data-i18n="cta.inline">I'm interested →</a>
         </div>
       </div>
       <div>
@@ -1013,122 +1035,112 @@
   </div>
 </section>
 
-<!-- divider -->
-<div class="divider">
-  <svg viewBox="0 0 1200 48" preserveAspectRatio="none">
-    <path d="M0,24 Q150,48 300,24 T600,24 T900,24 T1200,24 V0 H0 Z" fill="#EEE7D2"/>
-  </svg>
-</div>
+<div class="divider"><svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 Q150,48 300,24 T600,24 T900,24 T1200,24 V0 H0 Z" fill="#EEE7D2"/></svg></div>
 
 <!-- PRACTICAL -->
 <section class="practical">
   <div class="container">
-    <span class="eyebrow">Good to know</span>
-    <h2>The <span class="squiggle">practical</span> bits.</h2>
+    <span class="eyebrow" data-i18n="practical.eyebrow">Good to know</span>
+    <h2 data-i18n="practical.h2">The <span class="squiggle">practical</span> bits.</h2>
 
     <div class="practical-grid">
       <div class="detail">
-        <div class="label">Location</div>
-        <div class="value">Netherlands<br/>or Belgium</div>
+        <div class="label" data-i18n="practical.location.l">Location</div>
+        <div class="value" data-i18n="practical.location.v">Netherlands<br/>or Belgium</div>
       </div>
       <div class="detail">
-        <div class="label">Group size</div>
-        <div class="value">Max. 6<br/>women</div>
+        <div class="label" data-i18n="practical.group.l">Group size</div>
+        <div class="value" data-i18n="practical.group.v">Max. 6<br/>women</div>
       </div>
       <div class="detail">
-        <div class="label">Duration</div>
-        <div class="value">2 days<br/>1 night</div>
+        <div class="label" data-i18n="practical.duration.l">Duration</div>
+        <div class="value" data-i18n="practical.duration.v">2 days<br/>1 night</div>
       </div>
       <div class="detail">
-        <div class="label">Price</div>
-        <div class="value"><span class="approx-wave" aria-label="approximately"></span>€90<br/>per person</div>
+        <div class="label" data-i18n="practical.price.l">Price</div>
+        <div class="value">
+          <span class="approx-wave" aria-label="approximately"></span>
+          <span data-i18n="practical.price.v">€95<br/>per person</span>
+        </div>
       </div>
     </div>
 
     <div class="incl-grid">
       <div class="incl-col yes">
-        <h3>Included</h3>
+        <h3 data-i18n="practical.in.h">Included</h3>
         <ul>
-          <li>Route planning &amp; scouted wild camping spot</li>
-          <li>Dinner on Saturday &amp; breakfast on Sunday</li>
-          <li>Host on the trail the whole weekend</li>
-          <li>Mini outdoor-skills workshop</li>
-          <li>Packing list &amp; gear guidance ahead of time</li>
-          <li>WhatsApp group &amp; carpool coordination</li>
-          <li>The community — before, during, and after</li>
+          <li data-i18n="practical.in.l1">Route planning &amp; scouted wild camping spot</li>
+          <li data-i18n="practical.in.l2">Dinner on Saturday &amp; breakfast on Sunday</li>
+          <li data-i18n="practical.in.l3">Host on the trail the whole weekend</li>
+          <li data-i18n="practical.in.l4">Packing list &amp; gear guidance ahead of time</li>
+          <li data-i18n="practical.in.l5">WhatsApp group &amp; carpool coordination</li>
+          <li data-i18n="practical.in.l6">The community, before, during, and after</li>
         </ul>
       </div>
       <div class="incl-col no">
-        <h3>Not included</h3>
+        <h3 data-i18n="practical.out.h">Not included</h3>
         <ul>
-          <li>Travel to and from the start of the route</li>
-          <li>Lunch &amp; trail snacks (you bring your own)</li>
-          <li>Personal gear — tent, sleeping bag, pack, etc.</li>
-          <li>(Rental help is available if you need it)</li>
+          <li data-i18n="practical.out.l1">Travel to and from the start of the route</li>
+          <li data-i18n="practical.out.l2">Lunch &amp; trail snacks (you bring your own)</li>
+          <li data-i18n="practical.out.l3">Personal gear: tent, sleeping bag, pack, etc. (rental help is available if you need it)</li>
         </ul>
       </div>
+    </div>
+
+    <div class="inline-cta">
+      <a href="#signup" class="btn-inline" data-i18n="cta.inline">I'm interested →</a>
     </div>
   </div>
 </section>
 
-<!-- divider into FAQ -->
-<div class="divider">
-  <svg viewBox="0 0 1200 48" preserveAspectRatio="none">
-    <path d="M0,24 Q150,0 300,24 T600,24 T900,24 T1200,24 V48 H0 Z" fill="#E5DFC9"/>
-  </svg>
-</div>
+<div class="divider"><svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 Q150,0 300,24 T600,24 T900,24 T1200,24 V48 H0 Z" fill="#E5DFC9"/></svg></div>
 
 <!-- FAQ -->
 <section class="faq">
   <div class="container narrow">
-    <span class="eyebrow">FAQ</span>
-    <h2>Questions, answered.</h2>
+    <span class="eyebrow" data-i18n="faq.eyebrow">FAQ</span>
+    <h2 data-i18n="faq.h2">Questions, answered.</h2>
     <div class="faq-list">
       <details>
-        <summary>Is this only for beginners?</summary>
-        <p>Not at all. Whether it's your first night outside or your fiftieth, you'll fit in. Some women come for the experience, some for the community, some just want a weekend in nature with other people who get it.</p>
+        <summary data-i18n="faq.q1.s">Is this only for beginners?</summary>
+        <p data-i18n="faq.q1.a">Not at all. Whether it's your first night outside or your fiftieth, you'll fit in. Some women come for the experience, some for the community, some just want a weekend in nature with other people who get it.</p>
       </details>
       <details>
-        <summary>What gear do I need?</summary>
-        <p>Most things are items you might already have — a backpack, a sleeping bag, walking shoes. For anything you're missing, I can help arrange rentals or point you to gear worth borrowing.</p>
+        <summary data-i18n="faq.q2.s">What gear do I need?</summary>
+        <p data-i18n="faq.q2.a">Most things are items you might already have: a backpack, a sleeping bag, walking shoes. For anything you're missing, I can help arrange rentals or point you to gear worth borrowing.</p>
       </details>
       <details>
-        <summary>What about food?</summary>
-        <p>Dinner on Saturday and breakfast on Sunday are included. You bring your own lunch and snacks for the trail — I'll send guidance on what works well when you're walking with a pack.</p>
+        <summary data-i18n="faq.q3.s">What about food?</summary>
+        <p data-i18n="faq.q3.a">Dinner on Saturday and breakfast on Sunday are included. You bring your own lunch and snacks for the trail. I'll send guidance on what works well when you're walking with a pack.</p>
       </details>
       <details>
-        <summary>Is it safe?</summary>
-        <p>Yes. I'm with you the whole weekend, routes and camping spots are scouted in advance, and small groups mean nobody gets lost in the shuffle.</p>
+        <summary data-i18n="faq.q4.s">Is it safe?</summary>
+        <p data-i18n="faq.q4.a">Yes. I'm with you the whole weekend, routes and camping spots are scouted in advance, and small groups mean nobody gets lost in the shuffle.</p>
       </details>
       <details>
-        <summary>What if it rains?</summary>
-        <p>We go anyway — that's part of it. You'll be prepped with the right gear, and honestly, a rainy night in a tent makes for the best stories. If the weather is genuinely unsafe, we adapt.</p>
+        <summary data-i18n="faq.q5.s">What if it rains?</summary>
+        <p data-i18n="faq.q5.a">We go anyway, that's part of it. You'll be prepped with the right gear, and honestly, a rainy night in a tent makes for the best stories. If the weather is genuinely unsafe, we adapt.</p>
       </details>
       <details>
-        <summary>How fit do I need to be?</summary>
-        <p>If you can walk for a few hours with a pack, you're set. Routes are chosen to be enjoyable, not punishing — we move at a pace where everyone can chat and look around.</p>
+        <summary data-i18n="faq.q6.s">How fit do I need to be?</summary>
+        <p data-i18n="faq.q6.a">If you can walk for a few hours with a pack, you're set. Routes are chosen to be enjoyable, not punishing. We move at a pace where everyone can chat and look around.</p>
       </details>
     </div>
   </div>
 </section>
 
-<!-- divider -->
-<div class="divider">
-  <svg viewBox="0 0 1200 48" preserveAspectRatio="none">
-    <path d="M0,24 Q150,48 300,24 T600,24 T900,24 T1200,24 V0 H0 Z" fill="#E5DFC9"/>
-  </svg>
-</div>
+<div class="divider"><svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 Q150,48 300,24 T600,24 T900,24 T1200,24 V0 H0 Z" fill="#E5DFC9"/></svg></div>
 
-<!-- FORM EMBED -->
+<!-- FORM -->
 <section class="form-section" id="signup">
   <div class="container narrow" style="text-align:center;">
-    <span class="eyebrow">I'm interested</span>
-    <h2>Come <em>along</em>.</h2>
-    <p class="form-lead">Drop your details below — I'll be in touch with upcoming dates and answer any question you've got. No pressure, no spam.</p>
+    <span class="eyebrow" data-i18n="form.eyebrow">I'm interested</span>
+    <h2 data-i18n="form.h2">Come <em>along</em>.</h2>
+    <p class="form-lead" data-i18n="form.lead">Drop your details below, I'll be in touch with upcoming dates and answer any question you've got. No pressure, no spam.</p>
     <div class="form-wrap">
       <iframe
         src="https://docs.google.com/forms/d/e/1FAIpQLSdfxBIqL7K6IBgJpiq7ByqI-PxzBL5ZlzscHqtfKxccqWMqWA/viewform?embedded=true"
-        width="100%" height="1100" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">
+        width="100%" height="1280" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">
         Loading…
       </iframe>
     </div>
@@ -1138,13 +1150,13 @@
 <footer>
   <div class="container">
     <div class="logo">JOSI<span>Outdoor</span></div>
-    <p>Micro-adventures for women. Based in the Netherlands.</p>
+    <p data-i18n="footer.tagline">Micro-adventures for women. Based in the Netherlands.</p>
     <p style="margin-top:0.5rem;">© 2026 JOSI Outdoor</p>
   </div>
 </footer>
 
 <script>
-  // Hide the filename placeholder once a real image loads successfully
+  // Hide placeholder labels when a real image loads
   document.querySelectorAll('.image-placeholder img, .hero-image img, .puck-photo img').forEach(img => {
     const hideLabel = () => {
       const sib = img.nextElementSibling;
@@ -1153,6 +1165,247 @@
     if (img.complete && img.naturalHeight !== 0) hideLabel();
     else img.addEventListener('load', hideLabel);
   });
+
+  // Translations
+  const translations = {
+    en: {
+      'nav.cta': "I'm interested",
+      'hero.eyebrow': "You, a backpack, and a weekend off-grid",
+      'hero.h1': "Micro-adventures, made for women.",
+      'hero.lead': "Spend a weekend hiking with everything on your back, sleeping in nature, and meeting women who love the outdoors as much as you do.",
+      'hero.cta1': "I'm interested →",
+      'hero.cta2': "See what we'll do",
+
+      'whatIs.eyebrow': "A micro-adventure?",
+      'whatIs.h2': "So, what's a <span class=\"squiggle\">micro-adventure</span>?",
+      'whatIs.intro': "A short, simple, low-stakes trip into nature. Big enough to feel like a real adventure, small enough to fit into a weekend.",
+      'whatIs.item1': "Hike 2–3 days with everything on your back",
+      'whatIs.item2': "Filter our own water",
+      'whatIs.item3': "Sleep outside in nature",
+      'whatIs.item4': "Being offline",
+      'whatIs.item5': "Together with a small group of women",
+
+      'weekend.eyebrow': "The weekend",
+      'weekend.h2': "How it <em>actually</em> goes.",
+      'weekend.intro': "No experience needed. Just curiosity, a pair of legs that walk, and a willingness to be a little uncomfortable in the best way.",
+      'weekend.sat1.tag': "Saturday morning",
+      'weekend.sat1.h3': "We meet at the start of the route.",
+      'weekend.sat1.p1': "After a short introduction, one last check of the backpacks and a run-through of the plan, we head into nature together. For some it's the first time walking with everything on your back. Exciting, maybe a little nerve-wracking, which is exactly why we do it together.",
+      'weekend.sat1.p2': "We take our time, get to know each other, hike for a few hours, and stop for lunch somewhere with a view.",
+      'weekend.sat2.tag': "Saturday evening",
+      'weekend.sat2.h3': "We arrive at the wild camp.",
+      'weekend.sat2.p1': "Tents go up, water gets filtered from the stream, and we wash off the day in the river. Then dinner cooks on a tiny stove, and we eat together as the light goes soft.",
+      'weekend.sat2.p2': "No screens. No rush. No full agenda. Just the quiet of being outside, good conversation, and the strange, beautiful experience of falling asleep under the stars.",
+      'weekend.sun.tag': "Sunday",
+      'weekend.sun.h3': "We wake up in the middle of nature.",
+      'weekend.sun.p1': "Maybe with a coffee in the morning sun, maybe with a bit of mist between the trees. After breakfast we pack up camp and keep walking, more time for conversation and a lot of looking around.",
+      'weekend.sun.p2': "By late afternoon we're back at the end of the trail. Tired legs, new memories, and already wondering when the next one is.",
+
+      'forWho.eyebrow': "Who it's for",
+      'forWho.h2': "This is for women who <em>want to be outside</em>.",
+      'forWho.body': "Whether it's your first night in a tent or under the stars or your fiftieth, this weekend is built for you. It's for women who feel happiest with their boots on, who collect outdoor inspiration but rarely get to live it, and who want company on the trail.",
+      'forWho.li1': "You want to spend more time in nature: properly, not just a Sunday walk.",
+      'forWho.li2': "You love trying small adventures: hiking, wild camping, sleeping out.",
+      'forWho.li3': "You want to explore the beauty closer to home, not just on far-away trips.",
+      'forWho.li4': "You've saved a lot of hikes on Instagram but never actually got to them.",
+      'forWho.li5': "You're after friends who want to do this kind of thing with you.",
+      'forWho.li6': "You like the idea of a weekend with no plan but good food, slow mornings, and women who get it.",
+      'forWho.pull': "If even one of those felt familiar, you're in the right place.",
+
+      'about.eyebrow': "About me",
+      'about.h2': "Hi, I'm <em>Puck</em>.",
+      'about.p1': "I've been in love with mountains, hiking trails, and sleeping under the stars for years. The kind of weekends where you walk for hours, cook dinner on a tiny stove, and fall asleep listening to the wind in the trees. Those are the ones I keep coming back to.",
+      'about.p2': "What started as my own adventure became something I wanted to share. So I started organising small weekends for other women: to make the outdoors feel less out of reach, and a lot more fun.",
+      'about.p3': "If you've been waiting for the right group, or the right moment, or just someone else to plan the route, I'd love to have you along.",
+      'about.signature': "- Puck",
+
+      'included.eyebrow': "What you get",
+      'included.h2': "Everything sorted, so you can just <span class=\"squiggle\">show up</span>.",
+      'included.lead': "You don't have to plan the route, pick the spot, or worry about whether you're packing the right things. I've got you covered, so the only thing left for you is to say yes and turn up.",
+      'included.p1.h': "Before the weekend",
+      'included.p1.p': "A personal packing list, advice on what to borrow or skip, and an optional group call so you arrive knowing me and the other women.",
+      'included.p2.h': "During the weekend",
+      'included.p2.p': "A hike route, a wild spot to camp, dinner on Saturday and breakfast on Sunday, and full support throughout so you're never figuring it out alone.",
+      'included.p3.h': "The little things",
+      'included.p3.p': "A WhatsApp group to land in, help organising a carpool, an opening circle, a slow morning coffee, and a community of like-minded women that keeps going long after we walk out.",
+
+      'practical.eyebrow': "Good to know",
+      'practical.h2': "The <span class=\"squiggle\">practical</span> bits.",
+      'practical.location.l': "Location",
+      'practical.location.v': "Netherlands<br/>or Belgium",
+      'practical.group.l': "Group size",
+      'practical.group.v': "Max. 6<br/>women",
+      'practical.duration.l': "Duration",
+      'practical.duration.v': "2 days<br/>1 night",
+      'practical.price.l': "Price",
+      'practical.price.v': "€95<br/>per person",
+      'practical.in.h': "Included",
+      'practical.in.l1': "Route planning &amp; scouted wild camping spot",
+      'practical.in.l2': "Dinner on Saturday &amp; breakfast on Sunday",
+      'practical.in.l3': "Host on the trail the whole weekend",
+      'practical.in.l4': "Packing list &amp; gear guidance ahead of time",
+      'practical.in.l5': "WhatsApp group &amp; carpool coordination",
+      'practical.in.l6': "The community, before, during, and after",
+      'practical.out.h': "Not included",
+      'practical.out.l1': "Travel to and from the start of the route",
+      'practical.out.l2': "Lunch &amp; trail snacks (you bring your own)",
+      'practical.out.l3': "Personal gear: tent, sleeping bag, pack, etc. (rental help is available if you need it)",
+
+      'faq.eyebrow': "FAQ",
+      'faq.h2': "Questions, answered.",
+      'faq.q1.s': "Is this only for beginners?",
+      'faq.q1.a': "Not at all. Whether it's your first night outside or your fiftieth, you'll fit in. Some women come for the experience, some for the community, some just want a weekend in nature with other people who get it.",
+      'faq.q2.s': "What gear do I need?",
+      'faq.q2.a': "Most things are items you might already have: a backpack, a sleeping bag, walking shoes. For anything you're missing, I can help arrange rentals or point you to gear worth borrowing.",
+      'faq.q3.s': "What about food?",
+      'faq.q3.a': "Dinner on Saturday and breakfast on Sunday are included. You bring your own lunch and snacks for the trail. I'll send guidance on what works well when you're walking with a pack.",
+      'faq.q4.s': "Is it safe?",
+      'faq.q4.a': "Yes. I'm with you the whole weekend, routes and camping spots are scouted in advance, and small groups mean nobody gets lost in the shuffle.",
+      'faq.q5.s': "What if it rains?",
+      'faq.q5.a': "We go anyway, that's part of it. You'll be prepped with the right gear, and honestly, a rainy night in a tent makes for the best stories. If the weather is genuinely unsafe, we adapt.",
+      'faq.q6.s': "How fit do I need to be?",
+      'faq.q6.a': "If you can walk for a few hours with a pack, you're set. Routes are chosen to be enjoyable, not punishing. We move at a pace where everyone can chat and look around.",
+
+      'form.eyebrow': "I'm interested",
+      'form.h2': "Come <em>along</em>.",
+      'form.lead': "Drop your details below, I'll be in touch with upcoming dates and answer any question you've got. No pressure, no spam.",
+
+      'cta.inline': "I'm interested →",
+
+      'footer.tagline': "Micro-adventures for women. Based in the Netherlands."
+    },
+
+    nl: {
+      'nav.cta': "Doe mee",
+      'hero.eyebrow': "Jij, een rugzak en een weekend offline",
+      'hero.h1': "Micro-avonturen, gemaakt voor vrouwen.",
+      'hero.lead': "Een weekend wandelen met alles op je rug, slapen in de natuur, en vrouwen ontmoeten die net zoveel van buiten houden als jij.",
+      'hero.cta1': "Doe mee →",
+      'hero.cta2': "Wat gaan we doen?",
+
+      'whatIs.eyebrow': "Een micro-avontuur?",
+      'whatIs.h2': "Wat is een <span class=\"squiggle\">micro-avontuur</span>?",
+      'whatIs.intro': "Een korte, simpele trip de natuur in. Groot genoeg om als avontuur te voelen, klein genoeg om in een weekend te passen.",
+      'whatIs.item1': "2 tot 3 dagen wandelen met alles op je rug",
+      'whatIs.item2': "Ons eigen water filteren",
+      'whatIs.item3': "Buiten slapen in de natuur",
+      'whatIs.item4': "Offline zijn",
+      'whatIs.item5': "Samen met een kleine groep vrouwen",
+
+      'weekend.eyebrow': "Het weekend",
+      'weekend.h2': "Hoe het <em>echt</em> gaat.",
+      'weekend.intro': "Geen ervaring nodig. Alleen nieuwsgierigheid, benen die kunnen lopen, en zin om soms even uit je comfortzone te stappen.",
+      'weekend.sat1.tag': "Zaterdagochtend",
+      'weekend.sat1.h3': "We ontmoeten elkaar aan het begin van de route.",
+      'weekend.sat1.p1': "Na een korte kennismaking, een laatste check van de rugzakken en een uitleg van het plan, trekken we samen de natuur in. Voor sommigen is dit de eerste keer wandelen met alles op je rug. Spannend misschien, maar juist daarom doen we het samen.",
+      'weekend.sat1.p2': "We nemen de tijd, leren elkaar kennen, wandelen een paar uur, en stoppen onderweg voor lunch op een plek met uitzicht.",
+      'weekend.sat2.tag': "Zaterdagavond",
+      'weekend.sat2.h3': "We komen aan op de wilde kampeerplek.",
+      'weekend.sat2.p1': "We zetten onze tenten op, filteren water uit de beek, en wassen de dag van ons af in de rivier. Daarna kookt het avondeten op een klein gasbrandertje, en eten we samen terwijl het licht zachter wordt.",
+      'weekend.sat2.p2': "Geen schermen. Geen haast. Geen volle agenda. Alleen de rust van buiten zijn, goede gesprekken, en de bijzondere ervaring van een nacht slapen onder de sterren.",
+      'weekend.sun.tag': "Zondag",
+      'weekend.sun.h3': "We worden wakker midden in de natuur.",
+      'weekend.sun.p1': "Misschien met een kop koffie in de ochtendzon, misschien met een beetje mist tussen de bomen. Na het ontbijt pakken we het kamp in en lopen verder, meer tijd voor gesprekken en om om je heen te kijken.",
+      'weekend.sun.p2': "Aan het einde van de middag zijn we terug bij het eindpunt. Moe in de benen, nieuwe herinneringen, en al benieuwd naar de volgende keer.",
+
+      'forWho.eyebrow': "Voor wie het is",
+      'forWho.h2': "Dit is voor vrouwen die <em>buiten willen zijn</em>.",
+      'forWho.body': "Of het je eerste nacht in een tent of onder de sterren is, of je vijftigste, dit weekend is voor jou gemaakt. Voor vrouwen die het liefst hun wandelschoenen aan hebben, die outdoor inspiratie verzamelen maar er zelden aan toekomen, en die zin hebben in gezelschap onderweg.",
+      'forWho.li1': "Je wilt meer tijd in de natuur doorbrengen: echt, niet alleen een zondagse wandeling.",
+      'forWho.li2': "Je vindt het leuk om kleine avonturen te proberen: wandelen, wildkamperen, buiten slapen.",
+      'forWho.li3': "Je wilt de schoonheid dichter bij huis ontdekken, niet alleen op verre reizen.",
+      'forWho.li4': "Je hebt veel wandelingen op Instagram opgeslagen, maar er nooit echt iets mee gedaan.",
+      'forWho.li5': "Je zoekt vriendinnen die dit soort dingen met je willen doen.",
+      'forWho.li6': "Je houdt van het idee van een weekend zonder plan, met goed eten, rustige ochtenden en vrouwen die het snappen.",
+      'forWho.pull': "Als zelfs één van die dingen bekend voelt, ben je hier op de juiste plek.",
+
+      'about.eyebrow': "Over mij",
+      'about.h2': "Hoi, ik ben <em>Puck</em>.",
+      'about.p1': "Ik ben al jaren verliefd op bergen, wandelpaden, en slapen onder de sterren. Het soort weekenden waarin je urenlang loopt, je avondeten kookt op een klein gasbrandertje, en in slaap valt met de wind door de bomen. Daar blijf ik naar terugkomen.",
+      'about.p2': "Wat begon als mijn eigen avontuur werd iets dat ik wilde delen. Dus ben ik kleine weekenden gaan organiseren voor andere vrouwen: om de natuur dichterbij te brengen en een stuk leuker te maken.",
+      'about.p3': "Heb je gewacht op de juiste groep, het juiste moment, of gewoon iemand anders die de route plant? Ik heb je er graag bij.",
+      'about.signature': "- Puck",
+
+      'included.eyebrow': "Wat je krijgt",
+      'included.h2': "Alles geregeld, jij hoeft alleen <span class=\"squiggle\">op te komen dagen</span>.",
+      'included.lead': "Je hoeft de route niet te plannen, geen plek uit te zoeken, en je hoeft je geen zorgen te maken of je het juiste inpakt. Ik regel het, jij hoeft alleen ja te zeggen en op te komen dagen.",
+      'included.p1.h': "Voor het weekend",
+      'included.p1.p': "Een persoonlijke paklijst, advies over wat te lenen of overslaan, en een optionele groepscall zodat je mij en de andere vrouwen al een beetje kent als je aankomt.",
+      'included.p2.h': "Tijdens het weekend",
+      'included.p2.p': "Een wandelroute, een wilde kampeerplek, avondeten op zaterdag en ontbijt op zondag, en volledige begeleiding zodat je het nooit alleen hoeft uit te zoeken.",
+      'included.p3.h': "De kleine dingen",
+      'included.p3.p': "Een WhatsApp-groep om in te landen, hulp met carpoolen, een opening circle, een rustige ochtendkoffie, en een community van gelijkgestemde vrouwen die blijft bestaan lang nadat we weer naar huis gaan.",
+
+      'practical.eyebrow': "Goed om te weten",
+      'practical.h2': "De <span class=\"squiggle\">praktische</span> dingen.",
+      'practical.location.l': "Locatie",
+      'practical.location.v': "Nederland<br/>of België",
+      'practical.group.l': "Groepsgrootte",
+      'practical.group.v': "Max. 6<br/>vrouwen",
+      'practical.duration.l': "Duur",
+      'practical.duration.v': "2 dagen<br/>1 nacht",
+      'practical.price.l': "Prijs",
+      'practical.price.v': "€95<br/>per persoon",
+      'practical.in.h': "Inbegrepen",
+      'practical.in.l1': "Routeplanning &amp; gescoute wilde kampeerplek",
+      'practical.in.l2': "Avondeten op zaterdag &amp; ontbijt op zondag",
+      'practical.in.l3': "Host bij je gedurende het hele weekend",
+      'practical.in.l4': "Paklijst &amp; advies over je uitrusting vooraf",
+      'practical.in.l5': "WhatsApp-groep &amp; carpool coördinatie",
+      'practical.in.l6': "De community, voor, tijdens en na",
+      'practical.out.h': "Niet inbegrepen",
+      'practical.out.l1': "Reis van en naar het beginpunt",
+      'practical.out.l2': "Lunch &amp; snacks onderweg (zelf meenemen)",
+      'practical.out.l3': "Persoonlijke uitrusting: tent, slaapzak, rugzak, etc. (hulp bij het huren is beschikbaar)",
+
+      'faq.eyebrow': "FAQ",
+      'faq.h2': "Vragen, beantwoord.",
+      'faq.q1.s': "Is dit alleen voor beginners?",
+      'faq.q1.a': "Helemaal niet. Of het je eerste nacht buiten is of je vijftigste, je past erbij. Sommige vrouwen komen voor de ervaring, sommigen voor de community, sommigen willen gewoon een weekend in de natuur met andere mensen die het snappen.",
+      'faq.q2.s': "Welke uitrusting heb ik nodig?",
+      'faq.q2.a': "Het meeste zijn dingen die je misschien al hebt: een rugzak, een slaapzak, wandelschoenen. Voor wat je mist help ik je met huren of geef ik tips over wat je kunt lenen.",
+      'faq.q3.s': "En het eten?",
+      'faq.q3.a': "Het avondeten op zaterdag en het ontbijt op zondag zijn inbegrepen. Je neemt zelf je lunch en tussendoortjes voor onderweg mee. Ik stuur tips over wat goed werkt als je met een rugzak loopt.",
+      'faq.q4.s': "Is het veilig?",
+      'faq.q4.a': "Ja. Ik ben het hele weekend bij je, routes en kampeerplekken zijn vooraf gescout, en kleine groepen betekenen dat niemand uit het oog verloren wordt.",
+      'faq.q5.s': "En als het regent?",
+      'faq.q5.a': "Dan gaan we toch, dat hoort erbij. Je hebt de juiste uitrusting bij je, en eerlijk, een regenachtige nacht in een tent levert de beste verhalen op. Als het echt onveilig is, passen we het aan.",
+      'faq.q6.s': "Hoe fit moet ik zijn?",
+      'faq.q6.a': "Als je een paar uur kunt lopen met een rugzak, ben je klaar. Routes worden gekozen om leuk te zijn, niet om af te zien. We lopen in een tempo waarin iedereen kan kletsen en rondkijken.",
+
+      'form.eyebrow': "Ik doe mee",
+      'form.h2': "Kom <em>mee</em>.",
+      'form.lead': "Laat hieronder je gegevens achter. Ik neem contact op met de aankomende data en beantwoord alle vragen die je hebt. Geen druk, geen spam.",
+
+      'cta.inline': "Doe mee →",
+
+      'footer.tagline': "Micro-avonturen voor vrouwen. Gevestigd in Nederland."
+    }
+  };
+
+  function setLang(lang) {
+    if (!translations[lang]) lang = 'en';
+    try { localStorage.setItem('josi-lang', lang); } catch(e) {}
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (translations[lang][key] !== undefined) {
+        el.innerHTML = translations[lang][key];
+      }
+    });
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.addEventListener('click', () => setLang(b.dataset.lang));
+  });
+
+  // initial: stored choice → browser preference → English
+  let initial = 'en';
+  try { initial = localStorage.getItem('josi-lang') || (navigator.language && navigator.language.toLowerCase().startsWith('nl') ? 'nl' : 'en'); } catch(e) {}
+  setLang(initial);
 </script>
 </body>
 </html>
