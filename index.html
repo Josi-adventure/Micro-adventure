@@ -683,6 +683,131 @@
     line-height: 1.4;
   }
 
+  /* DATES */
+  .dates { background: var(--cream); }
+  .dates-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 3rem 0 2.5rem;
+  }
+  .date-card {
+    background: var(--cream-warm);
+    border-radius: 18px;
+    padding: 2rem;
+    position: relative;
+    border-top: 4px solid var(--burgundy);
+    transition: transform 0.2s;
+  }
+  .date-card:hover { transform: translateY(-3px); }
+  .date-card-date {
+    font-family: 'Fraunces', serif;
+    font-size: 1.85rem;
+    color: var(--green);
+    margin-bottom: 0.85rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  .date-card-trail {
+    font-family: 'Caveat', cursive;
+    font-size: 1.3rem;
+    color: var(--burgundy);
+    margin-bottom: 0.9rem;
+    line-height: 1.35;
+  }
+  .date-card-desc {
+    color: var(--ink);
+    margin-bottom: 1.4rem;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+  .date-card-price {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    color: var(--burgundy);
+    font-size: 1.15rem;
+  }
+  .date-card-price a {
+    color: var(--muted);
+    text-decoration: underline;
+    text-decoration-color: rgba(107,31,28,0.4);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    margin-left: 0.35rem;
+  }
+  .date-card-price a:hover { color: var(--burgundy); }
+  .dates-note {
+    text-align: center;
+    margin-top: 2.5rem;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .dates-note p {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    font-size: 1.02rem;
+    line-height: 1.7;
+  }
+
+  /* WHATSAPP BANNER */
+  .whatsapp-banner {
+    background: var(--green);
+    color: var(--cream);
+    text-align: center;
+    padding: 4.5rem 0;
+  }
+  .whatsapp-banner h2, .whatsapp-banner .eyebrow { color: var(--cream); }
+  .whatsapp-banner .eyebrow { color: var(--orange-soft); }
+  .whatsapp-banner h2 em { color: var(--orange-soft); font-style: italic; font-weight: 400; }
+  .whatsapp-banner p {
+    color: rgba(245,241,228,0.85);
+    max-width: 55ch;
+    margin: 1rem auto 2rem;
+    font-size: 1.08rem;
+    line-height: 1.65;
+  }
+  .btn-whatsapp {
+    background: #25D366;
+    color: white;
+    padding: 1rem 1.8rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    transition: transform 0.2s, background 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-whatsapp:hover { background: #128C7E; transform: translateY(-1px); }
+  .btn-whatsapp svg { width: 1.15rem; height: 1.15rem; }
+
+  /* READY closing (replaces form) */
+  .ready-section {
+    background: var(--burgundy);
+    color: var(--cream);
+    text-align: center;
+  }
+  .ready-section h2, .ready-section .eyebrow { color: var(--cream); }
+  .ready-section .eyebrow { color: var(--orange-soft); }
+  .ready-section h2 em { color: var(--orange-soft); font-style: italic; font-weight: 400; }
+  .ready-section p {
+    color: rgba(245,241,228,0.85);
+    max-width: 55ch;
+    margin: 1rem auto 2rem;
+    font-size: 1.08rem;
+    line-height: 1.65;
+  }
+  .ready-section .btn-whatsapp {
+    background: var(--cream);
+    color: var(--burgundy);
+  }
+  .ready-section .btn-whatsapp:hover { background: white; color: var(--burgundy); }
+
   /* FAQ */
   .faq { background: var(--green-soft); }
   .faq-list {
@@ -771,7 +896,7 @@
   /* RESPONSIVE */
   @media (max-width: 800px) {
     section { padding: 4rem 0; }
-    .included-grid, .row, .about-grid, .incl-grid { grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3.5rem; }
+    .included-grid, .row, .about-grid, .incl-grid, .dates-grid { grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3.5rem; }
     .for-who-list { grid-template-columns: 1fr; }
     .row { margin-bottom: 3.5rem; }
     .row-reverse .row-text { order: 1; }
@@ -804,7 +929,7 @@
       <span class="lang-sep">|</span>
       <button class="lang-btn" data-lang="nl">NL</button>
     </div>
-    <a href="#signup" class="nav-cta" data-i18n="nav.cta">I'm interested</a>
+    <a href="#dates" class="nav-cta" data-i18n="nav.cta">See upcoming dates</a>
   </div>
 </nav>
 
@@ -824,7 +949,7 @@
     <h1 data-i18n="hero.h1">Micro-adventures, made <em>for women</em>.</h1>
     <p class="lead" data-i18n="hero.lead">Spend a weekend hiking with everything on your back, sleeping in nature, and meeting women who love the outdoors as much as you do.</p>
     <div class="hero-actions">
-      <a href="#signup" class="btn btn-primary" data-i18n="hero.cta1">I'm interested →</a>
+      <a href="#dates" class="btn btn-primary" data-i18n="hero.cta1">See upcoming dates →</a>
       <a href="#what" class="btn btn-secondary" data-i18n="hero.cta2">See what we'll do</a>
     </div>
     <div class="hero-image">
@@ -951,7 +1076,7 @@
     </div>
 
     <div class="inline-cta">
-      <a href="#signup" class="btn-inline" data-i18n="cta.inline">I'm interested →</a>
+      <a href="#whatsapp" class="btn-inline" data-i18n="cta.inline">Claim your spot →</a>
     </div>
   </div>
 </section>
@@ -974,7 +1099,7 @@
     </ul>
     <p class="pull" data-i18n="forWho.pull">If even one of those felt familiar, you're in the right place.</p>
     <div class="inline-cta">
-      <a href="#signup" class="btn-inline" data-i18n="cta.inline">I'm interested →</a>
+      <a href="#whatsapp" class="btn-inline" data-i18n="cta.inline">Claim your spot →</a>
     </div>
   </div>
 </section>
@@ -1028,7 +1153,7 @@
           </div>
         </div>
         <div class="inline-cta" style="text-align:left; margin-top:2.5rem;">
-          <a href="#signup" class="btn-inline" data-i18n="cta.inline">I'm interested →</a>
+          <a href="#whatsapp" class="btn-inline" data-i18n="cta.inline">Claim your spot →</a>
         </div>
       </div>
       <div>
@@ -1044,7 +1169,7 @@
 <div class="divider"><svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 Q150,48 300,24 T600,24 T900,24 T1200,24 V0 H0 Z" fill="#EEE7D2"/></svg></div>
 
 <!-- PRACTICAL -->
-<section class="practical">
+<section class="practical" id="practical">
   <div class="container">
     <span class="eyebrow" data-i18n="practical.eyebrow">Good to know</span>
     <h2 data-i18n="practical.h2">The <span class="squiggle">practical</span> bits.</h2>
@@ -1064,7 +1189,7 @@
       </div>
       <div class="detail">
         <div class="label" data-i18n="practical.price.l">Price</div>
-        <div class="value" data-i18n="practical.price.v">€95<br/>per person</div>
+        <div class="value" data-i18n="practical.price.v">€115<br/>per person</div>
       </div>
     </div>
 
@@ -1089,10 +1214,54 @@
         </ul>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="inline-cta">
-      <a href="#signup" class="btn-inline" data-i18n="cta.inline">I'm interested →</a>
+<!-- UPCOMING DATES -->
+<section class="dates" id="dates">
+  <div class="container">
+    <div style="text-align:center; max-width:640px; margin:0 auto;">
+      <span class="eyebrow" data-i18n="dates.eyebrow">Upcoming weekends</span>
+      <h2 data-i18n="dates.h2">The <span class="squiggle">dates</span>.</h2>
+      <p class="section-intro" data-i18n="dates.subtitle">Two weekends. One trail. Your first wild night out.</p>
     </div>
+    <div class="dates-grid">
+      <div class="date-card">
+        <div class="date-card-date" data-i18n="dates.w1.date">August 8 &amp; 9</div>
+        <div class="date-card-trail" data-i18n="dates.w1.trail">Heeze–Weert · 38 km over 2 days · 1 wild camp night</div>
+        <p class="date-card-desc" data-i18n="dates.w1.desc">A hiking trip close to home, big enough to feel like a real adventure.</p>
+        <div class="date-card-price">
+          <span data-i18n="dates.w1.price">€115</span><a href="#practical" data-i18n="dates.seeIncluded">— see what's included</a>
+        </div>
+      </div>
+      <div class="date-card">
+        <div class="date-card-date" data-i18n="dates.w2.date">August 22 &amp; 23</div>
+        <div class="date-card-trail" data-i18n="dates.w2.trail">Heeze–Weert · 38 km over 2 days · 1 wild camp night</div>
+        <p class="date-card-desc" data-i18n="dates.w2.desc">A hiking trip close to home, big enough to feel like a real adventure.</p>
+        <div class="date-card-price">
+          <span data-i18n="dates.w2.price">€115</span><a href="#practical" data-i18n="dates.seeIncluded">— see what's included</a>
+        </div>
+      </div>
+    </div>
+    <div class="dates-note">
+      <p data-i18n="dates.body">Want to join? Here's how it works: join the WhatsApp community to stay in the loop, and once you're ready to claim your spot, send me a DM. I'll save your place and send payment details.</p>
+      <a href="#whatsapp" class="btn btn-primary" data-i18n="dates.cta">Join the WhatsApp community →</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 Q150,0 300,24 T600,24 T900,24 T1200,24 V48 H0 Z" fill="#2F4A43"/></svg></div>
+
+<!-- WHATSAPP BANNER -->
+<section class="whatsapp-banner" id="whatsapp">
+  <div class="container narrow">
+    <span class="eyebrow" data-i18n="whatsapp.eyebrow">Stay close</span>
+    <h2 data-i18n="whatsapp.h2">Stay in the <em>loop</em>.</h2>
+    <p data-i18n="whatsapp.body">Join the WhatsApp community to get updates on upcoming dates, ask any questions, and connect with other women who are just as curious as you. No pressure, no commitment — just a way to stay close to it until you're ready.</p>
+    <a href="https://chat.whatsapp.com/IxuM4BLckEXEuDXC5jCITK" target="_blank" rel="noopener" class="btn-whatsapp" data-i18n="whatsapp.cta">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0c-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.5-1.7-1.6-2-.2-.3 0-.4.1-.6l.5-.6c.2-.2.2-.3.3-.5s0-.4 0-.5c0-.1-.7-1.7-1-2.3-.2-.5-.5-.5-.7-.5H7c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.9-1.6c1.5.8 3.3 1.3 5.1 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.3-.5-4.7-1.3l-.3-.2-3 1 1-2.9-.2-.3C3.9 15 3.3 13.5 3.3 12c0-4.8 3.9-8.7 8.7-8.7s8.7 3.9 8.7 8.7-3.9 8.7-8.7 8.7z"/></svg>
+      Join the WhatsApp community
+    </a>
   </div>
 </section>
 
@@ -1132,21 +1301,18 @@
   </div>
 </section>
 
-<div class="divider"><svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 Q150,48 300,24 T600,24 T900,24 T1200,24 V0 H0 Z" fill="#E5DFC9"/></svg></div>
+<div class="divider"><svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 Q150,48 300,24 T600,24 T900,24 T1200,24 V0 H0 Z" fill="#6B1F1C"/></svg></div>
 
-<!-- FORM -->
-<section class="form-section" id="signup">
-  <div class="container narrow" style="text-align:center;">
-    <span class="eyebrow" data-i18n="form.eyebrow">I'm interested</span>
-    <h2 data-i18n="form.h2">Come <em>along</em>.</h2>
-    <p class="form-lead" data-i18n="form.lead">Drop your details below, I'll be in touch with upcoming dates and answer any question you've got. No pressure, no spam.</p>
-    <div class="form-wrap">
-      <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSdfxBIqL7K6IBgJpiq7ByqI-PxzBL5ZlzscHqtfKxccqWMqWA/viewform?embedded=true"
-        width="100%" height="1280" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">
-        Loading…
-      </iframe>
-    </div>
+<!-- READY (replaces form) -->
+<section class="ready-section" id="ready">
+  <div class="container narrow">
+    <span class="eyebrow" data-i18n="ready.eyebrow">Ready to go</span>
+    <h2 data-i18n="ready.h2"><em>Ready?</em></h2>
+    <p data-i18n="ready.body">Join the WhatsApp community and I'll keep you posted on everything — dates, details, and how to claim your spot.</p>
+    <a href="#whatsapp" class="btn-whatsapp" data-i18n="ready.cta">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1s-.5-.1-.7.2-.8 1-1 1.2-.4.2-.7 0c-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.5-1.7-1.6-2-.2-.3 0-.4.1-.6l.5-.6c.2-.2.2-.3.3-.5s0-.4 0-.5c0-.1-.7-1.7-1-2.3-.2-.5-.5-.5-.7-.5H7c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.9-1.6c1.5.8 3.3 1.3 5.1 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.3-.5-4.7-1.3l-.3-.2-3 1 1-2.9-.2-.3C3.9 15 3.3 13.5 3.3 12c0-4.8 3.9-8.7 8.7-8.7s8.7 3.9 8.7 8.7-3.9 8.7-8.7 8.7z"/></svg>
+      Join the WhatsApp community
+    </a>
   </div>
 </section>
 
@@ -1172,11 +1338,11 @@
   // Translations
   const translations = {
     en: {
-      'nav.cta': "I'm interested",
+      'nav.cta': "See upcoming dates",
       'hero.eyebrow': "You, a backpack, and a weekend off-grid",
       'hero.h1': "Micro-adventures, made <em>for women</em>.",
       'hero.lead': "Spend a weekend hiking with everything on your back, sleeping in nature, and meeting women who love the outdoors as much as you do.",
-      'hero.cta1': "I'm interested →",
+      'hero.cta1': "See upcoming dates →",
       'hero.cta2': "See what we'll do",
 
       'whatIs.eyebrow': "A micro-adventure?",
@@ -1241,7 +1407,31 @@
       'practical.duration.l': "Duration",
       'practical.duration.v': "2 days<br/>1 night",
       'practical.price.l': "Price",
-      'practical.price.v': "€95<br/>per person",
+      'practical.price.v': "€115<br/>per person",
+      'dates.eyebrow': "Upcoming weekends",
+      'dates.h2': "The <span class=\"squiggle\">dates</span>.",
+      'dates.subtitle': "Two weekends. One trail. Your first wild night out.",
+      'dates.w1.date': "August 8 &amp; 9",
+      'dates.w1.trail': "Heeze–Weert · 38 km over 2 days · 1 wild camp night",
+      'dates.w1.desc': "A hiking trip close to home, big enough to feel like a real adventure.",
+      'dates.w1.price': "€115",
+      'dates.w2.date': "August 22 &amp; 23",
+      'dates.w2.trail': "Heeze–Weert · 38 km over 2 days · 1 wild camp night",
+      'dates.w2.desc': "A hiking trip close to home, big enough to feel like a real adventure.",
+      'dates.w2.price': "€115",
+      'dates.seeIncluded': "— see what's included",
+      'dates.body': "Want to join? Here's how it works: join the WhatsApp community to stay in the loop, and once you're ready to claim your spot, send me a DM. I'll save your place and send payment details.",
+      'dates.cta': "Join the WhatsApp community →",
+
+      'whatsapp.eyebrow': "Stay close",
+      'whatsapp.h2': "Stay in the <em>loop</em>.",
+      'whatsapp.body': "Join the WhatsApp community to get updates on upcoming dates, ask any questions, and connect with other women who are just as curious as you. No pressure, no commitment — just a way to stay close to it until you're ready.",
+      'whatsapp.cta': "Join the WhatsApp community",
+
+      'ready.eyebrow': "Ready to go",
+      'ready.h2': "<em>Ready?</em>",
+      'ready.body': "Join the WhatsApp community and I'll keep you posted on everything — dates, details, and how to claim your spot.",
+      'ready.cta': "Join the WhatsApp community",
       'practical.in.h': "Included",
       'practical.in.l1': "Route planning &amp; scouted wild camping spot",
       'practical.in.l2': "Dinner on Saturday &amp; breakfast on Sunday",
@@ -1273,17 +1463,17 @@
       'form.h2': "Come <em>along</em>.",
       'form.lead': "Drop your details below, I'll be in touch with upcoming dates and answer any question you've got. No pressure, no spam.",
 
-      'cta.inline': "I'm interested →",
+      'cta.inline': "Claim your spot →",
 
       'footer.tagline': "Micro-adventures for women. Based in the Netherlands."
     },
 
     nl: {
-      'nav.cta': "Ik wil dit ervaren",
+      'nav.cta': "Bekijk de data",
       'hero.eyebrow': "Jij, een rugzak en een weekend offline",
       'hero.h1': "Micro-avonturen, speciaal <em>voor vrouwen</em>.",
       'hero.lead': "Een weekend wandelen met alles op je rug, slapen in de natuur, en vrouwen ontmoeten die net zoveel van buiten houden als jij.",
-      'hero.cta1': "Ik wil dit ervaren →",
+      'hero.cta1': "Bekijk de data →",
       'hero.cta2': "Wat gaan we doen?",
 
       'whatIs.eyebrow': "Een micro-avontuur?",
@@ -1348,7 +1538,31 @@
       'practical.duration.l': "Duur",
       'practical.duration.v': "2 dagen<br/>1 nacht",
       'practical.price.l': "Prijs",
-      'practical.price.v': "€95<br/>per persoon",
+      'practical.price.v': "€115<br/>per persoon",
+      'dates.eyebrow': "Aankomende weekenden",
+      'dates.h2': "De <span class=\"squiggle\">data</span>.",
+      'dates.subtitle': "Twee weekenden. Eén route. Jouw eerste wilde nacht buiten.",
+      'dates.w1.date': "8 &amp; 9 augustus",
+      'dates.w1.trail': "Heeze–Weert · 38 km in 2 dagen · 1 nacht wildkamperen",
+      'dates.w1.desc': "Een wandeltocht dicht bij huis, groot genoeg om als echt avontuur te voelen.",
+      'dates.w1.price': "€115",
+      'dates.w2.date': "22 &amp; 23 augustus",
+      'dates.w2.trail': "Heeze–Weert · 38 km in 2 dagen · 1 nacht wildkamperen",
+      'dates.w2.desc': "Een wandeltocht dicht bij huis, groot genoeg om als echt avontuur te voelen.",
+      'dates.w2.price': "€115",
+      'dates.seeIncluded': "— zie wat er inbegrepen is",
+      'dates.body': "Wil je mee? Zo werkt het: word lid van de WhatsApp community om op de hoogte te blijven, en zodra je klaar bent om je plek te claimen, stuur je me een DM. Ik reserveer je plek en stuur betaalgegevens.",
+      'dates.cta': "Word lid van de WhatsApp community →",
+
+      'whatsapp.eyebrow': "Blijf dichtbij",
+      'whatsapp.h2': "Blijf op de <em>hoogte</em>.",
+      'whatsapp.body': "Word lid van de WhatsApp community voor updates over aankomende data, om vragen te stellen, en om andere vrouwen te ontmoeten die net zo nieuwsgierig zijn als jij. Geen druk, geen verplichting — gewoon een manier om er dichtbij te blijven tot je er klaar voor bent.",
+      'whatsapp.cta': "Word lid van de WhatsApp community",
+
+      'ready.eyebrow': "Klaar om te gaan",
+      'ready.h2': "<em>Klaar?</em>",
+      'ready.body': "Word lid van de WhatsApp community en ik houd je op de hoogte van alles — data, details, en hoe je je plek claimt.",
+      'ready.cta': "Word lid van de WhatsApp community",
       'practical.in.h': "Inbegrepen",
       'practical.in.l1': "Routeplanning &amp; gescoute kampeerplek",
       'practical.in.l2': "Avondeten op zaterdag &amp; ontbijt op zondag",
@@ -1380,7 +1594,7 @@
       'form.h2': "Kom <em>mee</em>.",
       'form.lead': "Laat hieronder je gegevens achter. Ik neem contact op met de aankomende data en beantwoord alle vragen die je hebt. Geen druk, geen spam.",
 
-      'cta.inline': "Ik wil dit ervaren →",
+      'cta.inline': "Claim je plek →",
 
       'footer.tagline': "Micro-avonturen voor vrouwen. Gevestigd in Nederland."
     }
