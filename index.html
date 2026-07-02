@@ -916,8 +916,16 @@
   }
 </style>
 
-<!-- Cloudflare Web Analytics -->
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e699db5ba7a04d6f966d9309abe2cbd4"}'></script>
+<!-- Cloudflare Web Analytics (production only, so dev/preview loads aren't counted) -->
+<script>
+  if (location.hostname === 'josi-adventure.nl' || location.hostname === 'www.josi-adventure.nl') {
+    var cfBeacon = document.createElement('script');
+    cfBeacon.defer = true;
+    cfBeacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+    cfBeacon.setAttribute('data-cf-beacon', '{"token": "e699db5ba7a04d6f966d9309abe2cbd4"}');
+    document.head.appendChild(cfBeacon);
+  }
+</script>
 <!-- End Cloudflare Web Analytics -->
 </head>
 <body>
