@@ -43,7 +43,6 @@
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.15  0 0 0 0 0.15  0 0 0 0 0.15  0 0 0 0 0.15  0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   }
   body > * { position: relative; z-index: 1; }
-
   h1, h2, h3, .display {
     font-family: 'Fraunces', Georgia, serif;
     font-weight: 700;
@@ -68,7 +67,6 @@
     padding: 0 1.5rem;
   }
   .narrow { max-width: 760px; margin: 0 auto; }
-
   /* DECORATIVE */
   .squiggle {
     position: relative;
@@ -85,7 +83,6 @@
     background-repeat: no-repeat;
     background-size: 100% 100%;
   }
-
   /* WAVY DIVIDERS */
   .divider {
     line-height: 0;
@@ -97,7 +94,6 @@
     width: 100%;
     height: 48px;
   }
-
   /* NAV */
   nav {
     padding: 1.5rem 1.5rem;
@@ -155,7 +151,6 @@
   }
   .lang-btn:hover { color: var(--green); }
   .lang-sep { color: rgba(0,0,0,0.18); padding: 0 0.1rem; }
-
   .nav-cta {
     background: var(--green);
     color: var(--cream);
@@ -167,7 +162,6 @@
     transition: background 0.2s;
   }
   .nav-cta:hover { background: var(--green-deep); }
-
   /* HERO */
   .hero {
     padding: 3rem 0 5rem;
@@ -238,7 +232,6 @@
     border: 1.5px solid var(--green);
   }
   .btn-secondary:hover { background: var(--green); color: var(--cream); }
-
   /* Inline CTA — small "I'm interested" anchor below sections */
   .inline-cta {
     text-align: center;
@@ -265,7 +258,6 @@
     color: var(--burgundy);
   }
   .for-who .btn-inline:hover { background: var(--cream); color: var(--burgundy); }
-
   .hero-image {
     margin-top: 3rem;
     aspect-ratio: 16 / 9;
@@ -308,9 +300,7 @@
     bottom: -8px; right: 20px;
     transform: rotate(-4deg);
   }
-
   section { padding: 5.5rem 0; position: relative; }
-
   /* WHAT IS */
   .what-is {
     background: var(--green-soft);
@@ -349,7 +339,6 @@
     font-weight: 600;
   }
   .what-is h2 .squiggle::after { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' preserveAspectRatio='none'><path d='M0,6 Q15,0 30,6 T60,6 T90,6 T120,6' stroke='%236B1F1C' stroke-width='3' fill='none' stroke-linecap='round'/></svg>"); }
-
   /* IMAGE PLACEHOLDER */
   .image-placeholder {
     aspect-ratio: 4 / 5;
@@ -382,14 +371,12 @@
     padding: 0 1rem;
     text-align: center;
   }
-
   .section-intro {
     max-width: 60ch;
     margin: 0.5rem auto 0;
     color: var(--muted);
     font-size: 1.1rem;
   }
-
   /* WEEKEND ROWS */
   .weekend-intro { max-width: 760px; margin-bottom: 4rem; }
   .row {
@@ -432,7 +419,6 @@
   .row-image .image-placeholder { transform: rotate(-1.5deg); transition: transform 0.3s; }
   .row-reverse .row-image .image-placeholder { transform: rotate(1.5deg); }
   .row-image .image-placeholder:hover { transform: rotate(0); }
-
   /* FOR WHO */
   .for-who {
     background: var(--green);
@@ -488,7 +474,6 @@
     color: var(--orange-soft);
     text-align: center;
   }
-
   /* ABOUT ME */
   .about-me { background: var(--cream); }
   .about-grid {
@@ -563,7 +548,6 @@
     transform: rotate(-2deg);
     display: inline-block;
   }
-
   /* INCLUDED */
   .included { background: var(--cream-warm); }
   .included-grid {
@@ -598,7 +582,6 @@
     line-height: 1.6;
   }
   .included .image-placeholder { transform: rotate(2deg); }
-
   /* PRACTICAL */
   .practical { background: var(--cream); }
   .practical-grid {
@@ -637,7 +620,6 @@
     background-repeat: no-repeat;
     background-size: contain;
   }
-
   /* INCLUDED / NOT */
   .incl-grid {
     display: grid;
@@ -683,7 +665,6 @@
     font-size: 1.2rem;
     line-height: 1.4;
   }
-
   /* DATES */
   .dates { background: var(--cream); }
   .dates-grid {
@@ -761,6 +742,22 @@
     color: var(--cream);
     white-space: nowrap;
   }
+  .date-card-badge {
+    position: absolute;
+    top: -12px;
+    right: 16px;
+    background: var(--burgundy);
+    color: var(--cream);
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    z-index: 3;
+    transform: rotate(-3deg);
+  }
   .dates-note {
     text-align: center;
     margin-top: 2.5rem;
@@ -774,7 +771,6 @@
     font-size: 1.02rem;
     line-height: 1.7;
   }
-
   /* WHATSAPP BANNER */
   .whatsapp-banner {
     background: var(--green);
@@ -809,7 +805,6 @@
   }
   .btn-whatsapp:hover { background: #128C7E; transform: translateY(-1px); }
   .btn-whatsapp svg { width: 1.15rem; height: 1.15rem; }
-
   /* READY closing (replaces form) */
   .ready-section {
     background: var(--burgundy);
@@ -831,7 +826,6 @@
     color: var(--burgundy);
   }
   .ready-section .btn-whatsapp:hover { background: white; color: var(--burgundy); }
-
   /* FAQ */
   .faq { background: var(--green-soft); }
   .faq-list {
@@ -871,7 +865,6 @@
     color: var(--muted);
     line-height: 1.65;
   }
-
   /* FORM */
   .form-section {
     background: var(--burgundy);
@@ -906,7 +899,6 @@
        (e.g. -80px). Leave at 0 to show the full form. */
     margin-top: 0;
   }
-
   /* FOOTER */
   footer {
     background: var(--green-deep);
@@ -916,7 +908,6 @@
     font-size: 0.9rem;
   }
   footer .logo { color: var(--cream); margin-bottom: 1rem; display: inline-block; }
-
   /* RESPONSIVE */
   @media (max-width: 800px) {
     section { padding: 4rem 0; }
@@ -938,7 +929,6 @@
     .nav-cta { padding: 0.6rem 1rem; font-size: 0.85rem; }
   }
 </style>
-
 <!-- Cloudflare Web Analytics (production only, so dev/preview loads aren't counted) -->
 <script>
   if (location.hostname === 'josi-adventure.nl' || location.hostname === 'www.josi-adventure.nl') {
@@ -952,7 +942,6 @@
 <!-- End Cloudflare Web Analytics -->
 </head>
 <body>
-
 <nav>
   <div class="logo">JOSI<span>Adventure</span></div>
   <div class="nav-right">
@@ -964,7 +953,6 @@
     <a href="#dates" class="nav-cta" data-i18n="nav.cta">Find upcoming dates</a>
   </div>
 </nav>
-
 <!-- HERO -->
 <header class="hero">
   <div class="container">
@@ -976,7 +964,6 @@
       <path d="M5 55 L25 25 L40 40 L55 15 L75 40 L95 55 Z"/>
       <path d="M50 22 L52 18 L55 22" />
     </svg>
-
     <span class="eyebrow" data-i18n="hero.eyebrow">You, a backpack, and a weekend off-grid</span>
     <h1 data-i18n="hero.h1">Micro-adventures, made <em>for women</em>.</h1>
     <p class="lead" data-i18n="hero.lead">Spend a weekend hiking with everything on your back, sleeping in nature, and meeting women who love the outdoors as much as you do.</p>
@@ -990,9 +977,7 @@
     </div>
   </div>
 </header>
-
 <div class="divider"><svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 Q150,0 300,24 T600,24 T900,24 T1200,24 V48 H0 Z" fill="#E5DFC9"/></svg></div>
-
 <!-- WHAT IS A MICRO-ADVENTURE -->
 <section class="what-is" id="what">
   <div class="container">
@@ -1050,9 +1035,7 @@
     </div>
   </div>
 </section>
-
 <div class="divider"><svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 Q150,48 300,24 T600,24 T900,24 T1200,24 V0 H0 Z" fill="#E5DFC9"/></svg></div>
-
 <!-- WEEKEND ROWS -->
 <section class="weekend">
   <div class="container">
@@ -1061,7 +1044,6 @@
       <h2 data-i18n="weekend.h2">What it <em>looks like</em>.</h2>
       <p class="section-intro" data-i18n="weekend.intro">No experience needed. Just curiosity, a pair of legs that walk, and a willingness to be a little uncomfortable in the best way.</p>
     </div>
-
     <div class="row">
       <div class="row-text">
         <p class="row-tag" data-i18n="weekend.sat1.tag">Saturday morning</p>
@@ -1076,7 +1058,6 @@
         </div>
       </div>
     </div>
-
     <div class="row row-reverse">
       <div class="row-text">
         <p class="row-tag" data-i18n="weekend.sat2.tag">Saturday evening</p>
@@ -1091,7 +1072,6 @@
         </div>
       </div>
     </div>
-
     <div class="row">
       <div class="row-text">
         <p class="row-tag" data-i18n="weekend.sun.tag">Sunday</p>
@@ -1106,15 +1086,12 @@
         </div>
       </div>
     </div>
-
     <div class="inline-cta">
       <a href="#whatsapp" class="btn-inline" data-i18n="cta.inline">Claim your spot →</a>
     </div>
   </div>
 </section>
-
 <div class="divider"><svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 Q150,0 300,24 T600,24 T900,24 T1200,24 V48 H0 Z" fill="#2F4A43"/></svg></div>
-
 <!-- FOR WHO -->
 <section class="for-who">
   <div class="container narrow">
@@ -1135,9 +1112,7 @@
     </div>
   </div>
 </section>
-
 <div class="divider"><svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 Q150,48 300,24 T600,24 T900,24 T1200,24 V0 H0 Z" fill="#2F4A43"/></svg></div>
-
 <!-- ABOUT ME -->
 <section class="about-me">
   <div class="container">
@@ -1159,9 +1134,7 @@
     </div>
   </div>
 </section>
-
 <div class="divider"><svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 Q150,0 300,24 T600,24 T900,24 T1200,24 V48 H0 Z" fill="#EEE7D2"/></svg></div>
-
 <!-- WHAT YOU GET -->
 <section class="included">
   <div class="container">
@@ -1197,15 +1170,12 @@
     </div>
   </div>
 </section>
-
 <div class="divider"><svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 Q150,48 300,24 T600,24 T900,24 T1200,24 V0 H0 Z" fill="#EEE7D2"/></svg></div>
-
 <!-- PRACTICAL -->
 <section class="practical" id="practical">
   <div class="container">
     <span class="eyebrow" data-i18n="practical.eyebrow">Good to know</span>
     <h2 data-i18n="practical.h2">The <span class="squiggle">practical</span> bits.</h2>
-
     <div class="practical-grid">
       <div class="detail">
         <div class="label" data-i18n="practical.location.l">Location</div>
@@ -1213,7 +1183,7 @@
       </div>
       <div class="detail">
         <div class="label" data-i18n="practical.group.l">Group size</div>
-        <div class="value" data-i18n="practical.group.v">Max. 6<br/>women</div>
+        <div class="value" data-i18n="practical.group.v">Max. 8<br/>women</div>
       </div>
       <div class="detail">
         <div class="label" data-i18n="practical.duration.l">Duration</div>
@@ -1224,7 +1194,6 @@
         <div class="value" data-i18n="practical.price.v">€120<br/>per person</div>
       </div>
     </div>
-
     <div class="incl-grid">
       <div class="incl-col yes">
         <h3 data-i18n="practical.in.h">Included</h3>
@@ -1248,17 +1217,17 @@
     </div>
   </div>
 </section>
-
 <!-- UPCOMING DATES -->
 <section class="dates" id="dates">
   <div class="container">
     <div style="text-align:center; max-width:640px; margin:0 auto;">
       <span class="eyebrow" data-i18n="dates.eyebrow">When are you going?</span>
-      <h2 data-i18n="dates.h2"><span class="squiggle">Available</span> weekends.</h2>
+      <h2 data-i18n="dates.h2"><span class="squiggle">Micro-Adventure</span> Weekends.</h2>
       <p class="section-intro" data-i18n="dates.subtitle">Choose the date that works best for you.</p>
     </div>
     <div class="dates-grid">
       <div class="date-card">
+        <div class="date-card-badge" data-i18n="dates.soldOut">Fully booked</div>
         <div class="date-card-date" data-i18n="dates.w1.date">August 8 &amp; 9</div>
         <div class="date-card-trail" data-i18n="dates.w1.trail">Heeze–Weert · 38 km over 2 days · 1 wild camp night</div>
         <p class="date-card-desc" data-i18n="dates.w1.desc">A hiking trip close to home, big enough to feel like a real adventure.</p>
@@ -1271,6 +1240,7 @@
         </a>
       </div>
       <div class="date-card">
+        <div class="date-card-badge" data-i18n="dates.soldOut">Fully booked</div>
         <div class="date-card-date" data-i18n="dates.w2.date">August 22 &amp; 23</div>
         <div class="date-card-trail" data-i18n="dates.w2.trail">Heeze–Weert · 38 km over 2 days · 1 wild camp night</div>
         <p class="date-card-desc" data-i18n="dates.w2.desc">A hiking trip close to home, big enough to feel like a real adventure.</p>
@@ -1284,14 +1254,12 @@
       </div>
     </div>
     <div class="dates-note">
-      <p data-i18n="dates.body">Want to join? Join the WhatsApp community and send me a DM when you want to reserve your spot.</p>
+      <p data-i18n="dates.body">Both August weekends are fully booked. Want to be the first to hear about the next Micro-Adventure Weekends? Join the WhatsApp community.</p>
       <a href="#whatsapp" class="btn btn-primary" data-i18n="dates.cta">Join the WhatsApp community →</a>
     </div>
   </div>
 </section>
-
 <div class="divider"><svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 Q150,0 300,24 T600,24 T900,24 T1200,24 V48 H0 Z" fill="#2F4A43"/></svg></div>
-
 <!-- WHATSAPP BANNER -->
 <section class="whatsapp-banner" id="whatsapp">
   <div class="container narrow">
@@ -1303,9 +1271,7 @@
     </a>
   </div>
 </section>
-
 <div class="divider"><svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 Q150,0 300,24 T600,24 T900,24 T1200,24 V48 H0 Z" fill="#E5DFC9"/></svg></div>
-
 <!-- FAQ -->
 <section class="faq">
   <div class="container narrow">
@@ -1347,7 +1313,6 @@
     </div>
   </div>
 </section>
-
 <footer>
   <div class="container">
     <div class="logo">JOSI<span>Adventure</span></div>
@@ -1355,7 +1320,6 @@
     <p style="margin-top:0.5rem;">© 2026 JOSI Adventure</p>
   </div>
 </footer>
-
 <script>
   // Hide placeholder labels when a real image loads
   document.querySelectorAll('.image-placeholder img, .hero-image img, .puck-photo img').forEach(img => {
@@ -1366,7 +1330,6 @@
     if (img.complete && img.naturalHeight !== 0) hideLabel();
     else img.addEventListener('load', hideLabel);
   });
-
   // Translations
   const translations = {
     en: {
@@ -1376,7 +1339,6 @@
       'hero.lead': "Spend a weekend hiking with everything on your back, sleeping in nature, and meeting women who love the outdoors as much as you do.",
       'hero.cta1': "Find upcoming dates →",
       'hero.cta2': "See what we'll do",
-
       'whatIs.eyebrow': "A micro-adventure?",
       'whatIs.h2': "So, what's a <span class=\"squiggle\">micro-adventure</span>?",
       'whatIs.intro': "A short, simple, low-stakes trip into nature. Big enough to feel like a real adventure, small enough to fit into a weekend.",
@@ -1385,7 +1347,6 @@
       'whatIs.item3': "Sleep outside in nature",
       'whatIs.item4': "Being offline",
       'whatIs.item5': "Together with a small group of women",
-
       'weekend.eyebrow': "The weekend",
       'weekend.h2': "What it <em>looks like</em>.",
       'weekend.intro': "No experience needed. Just curiosity, a pair of legs that walk, and a willingness to be a little uncomfortable in the best way.",
@@ -1401,7 +1362,6 @@
       'weekend.sun.h3': "We wake up in the middle of nature.",
       'weekend.sun.p1': "Maybe with a coffee in the morning sun, maybe with a bit of mist between the trees. After breakfast, we pack up our camp and start walking. More time for conversations and a lot of nature time.",
       'weekend.sun.p2': "By late afternoon we're at the end of the trail. Tired legs, new memories, and already wondering when the next adventure is.",
-
       'forWho.eyebrow': "Who it's for",
       'forWho.h2': "This is for women who <em>want to be outside</em>.",
       'forWho.body': "Whether it's your first night in a tent or your fiftieth, this weekend is built for you. It's for women who feel happiest with their boots on, who collect outdoor inspiration but rarely get to live it, and who want company on the trail.",
@@ -1412,14 +1372,12 @@
       'forWho.li5': "You're after friends who want to do this kind of thing with you.",
       'forWho.li6': "You like the idea of a weekend with no plan but good food, slow mornings, and women who get it.",
       'forWho.pull': "If even one of those felt familiar, you're in the right place.",
-
       'about.eyebrow': "About me",
       'about.h2': "Hi, I'm <em>Puck</em>.",
       'about.p1': "I've been in love with mountains, hiking trails, and sleeping under the stars for years. The kind of weekends where you walk for hours, cook dinner on a tiny stove, and fall asleep listening to the wind in the trees. Those are the ones I keep coming back to.",
       'about.p2': "What started as my own adventure became something I wanted to share. So I started organising small weekends for other women: to make the outdoors feel less out of reach, and a lot more fun.",
       'about.p3': "If you've been waiting for the right group, or the right moment, or just someone else to plan the route, I'd love to have you along.",
       'about.signature': "- Puck",
-
       'included.eyebrow': "What you get",
       'included.h2': "Everything sorted, so you can just <span class=\"squiggle\">show up</span>.",
       'included.lead': "You don't have to plan the route, pick the spot, or worry about whether you're packing the right things. I've got you covered, so the only thing left for you is to say yes and turn up.",
@@ -1429,19 +1387,18 @@
       'included.p2.p': "A hiking route, a \"wild spot\" to camp, dinner on Saturday and breakfast on Sunday, and full support throughout so you're never figuring it out alone.",
       'included.p3.h': "The little things",
       'included.p3.p': "A WhatsApp group to land in, help organising a carpool, a slow morning coffee, and a community of like-minded women that keeps going long after we walk out.",
-
       'practical.eyebrow': "Good to know",
       'practical.h2': "The <span class=\"squiggle\">practical</span> bits.",
       'practical.location.l': "Location",
       'practical.location.v': "Netherlands<br/>or Belgium",
       'practical.group.l': "Group size",
-      'practical.group.v': "Max. 6<br/>women",
+      'practical.group.v': "Max. 8<br/>women",
       'practical.duration.l': "Duration",
       'practical.duration.v': "2 days<br/>1 night",
       'practical.price.l': "Price",
       'practical.price.v': "€120<br/>per person",
       'dates.eyebrow': "When are you going?",
-      'dates.h2': "<span class=\"squiggle\">Available</span> weekends.",
+      'dates.h2': "<span class=\"squiggle\">Micro-Adventure</span> Weekends.",
       'dates.subtitle': "Choose the date that works best for you.",
       'dates.w1.date': "August 8 &amp; 9",
       'dates.w1.trail': "Heeze–Weert · 38 km over 2 days · 1 wild camp night",
@@ -1452,10 +1409,10 @@
       'dates.w2.desc': "A hiking trip close to home, big enough to feel like a real adventure.",
       'dates.w2.price': "€120",
       'dates.collab': "In collaboration with",
+      'dates.soldOut': "Fully booked",
       'dates.seeIncluded': "— see what's included",
-      'dates.body': "Want to join? Join the WhatsApp community and send me a DM when you want to reserve your spot.",
+      'dates.body': "Both August weekends are fully booked. Want to be the first to hear about the next Micro-Adventure Weekends? Join the WhatsApp community.",
       'dates.cta': "Join the WhatsApp community →",
-
       'whatsapp.h2': "Stay in the <em>loop</em>.",
       'whatsapp.body': "Get updates on new dates, meet other women and get a feel for the vibe. Ask questions, follow along, and claim your spot for a weekend when it feels right.",
       'whatsapp.cta': "Join the WhatsApp community",
@@ -1470,7 +1427,6 @@
       'practical.out.l1': "Travel to and from the start of the route",
       'practical.out.l2': "Lunch &amp; trail snacks (you bring your own)",
       'practical.out.l3': "Personal gear: tent, sleeping bag, pack, etc. (I can help you with this!!)",
-
       'faq.eyebrow': "FAQ",
       'faq.h2': "Questions, answered.",
       'faq.q1.s': "Is this only for beginners?",
@@ -1489,16 +1445,12 @@
       'faq.q7.a': "Everyone who identifies as a woman is welcome here. This includes cis women, trans women, and people with experiences or identities that feel connected to womanhood and who feel comfortable in a women-centered space. The goal of these adventures is to create a welcoming environment where people can feel safe, supported and themselves. Kindness, respect and looking out for one another matter far more than fitting into a strict definition. If you're unsure whether this space feels right for you, you're always welcome to reach out and ask.",
       'faq.q8.s': "Why are these adventures only for women?",
       'faq.q8.a': "I started these adventures because I want to create a space where women can feel comfortable stepping outside their comfort zone, trying something new and building confidence together. For many women, outdoor spaces and adventure activities can sometimes feel intimidating or male-dominated. I want to create an environment where there's a little less pressure, where people can show up exactly as they are, ask questions freely, feel supported and connect with others who are looking for the same thing. This isn't about excluding anyone, it's about creating a space built around a specific experience and community. My hope is that it helps more women feel confident enough to take up space outdoors, try new things and realize they're more capable than they think.",
-
       'form.eyebrow': "I'm interested",
       'form.h2': "Come <em>along</em>.",
       'form.lead': "Drop your details below, I'll be in touch with upcoming dates and answer any question you've got. No pressure, no spam.",
-
       'cta.inline': "Claim your spot →",
-
       'footer.tagline': "Micro-adventures for women. Based in the Netherlands."
     },
-
     nl: {
       'nav.cta': "Beschikbare weekenden",
       'hero.eyebrow': "Jij, een rugzak en een weekend offline",
@@ -1506,7 +1458,6 @@
       'hero.lead': "Een weekend wandelen met alles op je rug, slapen in de natuur, en vrouwen ontmoeten die net zoveel van buiten houden als jij.",
       'hero.cta1': "Beschikbare weekenden →",
       'hero.cta2': "Wat gaan we doen?",
-
       'whatIs.eyebrow': "Een micro-adventure?",
       'whatIs.h2': "Wat is een <span class=\"squiggle\">micro-adventure</span>?",
       'whatIs.intro': "Een korte trip de natuur in. Groot genoeg om als avontuur te voelen, klein genoeg om in een weekend te passen.",
@@ -1515,7 +1466,6 @@
       'whatIs.item3': "Buiten slapen in de natuur",
       'whatIs.item4': "Offline zijn",
       'whatIs.item5': "Samen met een kleine groep vrouwen",
-
       'weekend.eyebrow': "Het weekend",
       'weekend.h2': "Hoe het <em>echt</em> gaat.",
       'weekend.intro': "Geen ervaring nodig. Alleen nieuwsgierigheid, benen die kunnen lopen, en zin om soms even uit je comfortzone te stappen.",
@@ -1531,7 +1481,6 @@
       'weekend.sun.h3': "We worden wakker midden in de natuur.",
       'weekend.sun.p1': "Misschien met een kop koffie in de ochtendzon, misschien met een beetje mist tussen de bomen. Na het ontbijt pakken we het kamp in en lopen verder, meer tijd voor gesprekken en om om je heen te kijken.",
       'weekend.sun.p2': "Aan het einde van de middag komen we aan bij het eindpunt van de wandeling. Moe in de benen, nieuwe herinneringen, en al uitkijkend naar het volgende avontuur.",
-
       'forWho.eyebrow': "Voor wie het is",
       'forWho.h2': "Dit is voor vrouwen die <em>buiten willen zijn</em>.",
       'forWho.body': "Of het je eerste nacht in een tent of onder de sterren is, of je vijftigste, dit weekend is voor jou gemaakt. Voor vrouwen die het liefst hun wandelschoenen aan hebben, die outdoor inspiratie verzamelen maar er zelden aan toekomen, en die zin hebben in gezelschap onderweg.",
@@ -1542,14 +1491,12 @@
       'forWho.li5': "Je zoekt vrouwen die dit soort dingen met je willen doen.",
       'forWho.li6': "Je houdt van het idee van een weekend zonder plan, rustige ochtenden en vrouwen die het snappen.",
       'forWho.pull': "Als zelfs één van die dingen bekend voelt, ben je hier op de juiste plek.",
-
       'about.eyebrow': "Over mij",
       'about.h2': "Hoi, ik ben <em>Puck</em>.",
       'about.p1': "Ik ben al jaren verliefd op bergen, wandelpaden, en slapen onder de sterren. Het soort weekenden waarin je urenlang loopt, je avondeten kookt op een klein gasbrandertje, en in slaap valt met de wind door de bomen. Daar blijf ik naar terugkomen.",
       'about.p2': "Wat begon als mijn eigen avontuur, groeide uit tot iets wat ik graag met anderen wilde delen. Daarom ben ik begonnen met het organiseren van kleine weekendjes weg voor andere vrouwen: om het buitenleven minder onbereikbaar te laten lijken en een stuk leuker te maken.",
       'about.p3': "Heb je gewacht op de juiste groep, het juiste moment, of gewoon iemand anders die de route plant? Ik heb je er graag bij!",
       'about.signature': "- Puck",
-
       'included.eyebrow': "Wat je krijgt",
       'included.h2': "Alles geregeld, jij hoeft alleen <span class=\"squiggle\">op te komen dagen</span>.",
       'included.lead': "Je hoeft de route niet te plannen, geen plek uit te zoeken, en je hoeft je geen zorgen te maken of je het juiste inpakt. Ik regel het, jij hoeft alleen ja te zeggen en op te komen dagen.",
@@ -1559,19 +1506,18 @@
       'included.p2.p': "Een wandelroute, een wilde kampeerplek, avondeten op zaterdag en ontbijt op zondag, en volledige begeleiding zodat je het nooit alleen hoeft uit te zoeken.",
       'included.p3.h': "De kleine dingen",
       'included.p3.p': "Een WhatsApp-groep om in te landen, hulp met carpoolen, een ochtendkoffietje, en een community van gelijkgestemde vrouwen die blijft bestaan lang nadat we weer naar huis gaan.",
-
       'practical.eyebrow': "Goed om te weten",
       'practical.h2': "De <span class=\"squiggle\">praktische</span> dingen.",
       'practical.location.l': "Locatie",
       'practical.location.v': "Nederland<br/>of België",
       'practical.group.l': "Groepsgrootte",
-      'practical.group.v': "Max. 6<br/>vrouwen",
+      'practical.group.v': "Max. 8<br/>vrouwen",
       'practical.duration.l': "Duur",
       'practical.duration.v': "2 dagen<br/>1 nacht",
       'practical.price.l': "Prijs",
       'practical.price.v': "€120<br/>per persoon",
       'dates.eyebrow': "Wanneer ga jij?",
-      'dates.h2': "<span class=\"squiggle\">Beschikbare</span> weekenden.",
+      'dates.h2': "<span class=\"squiggle\">Micro-Adventure</span> Weekends.",
       'dates.subtitle': "Kies de datum die bij jou past.",
       'dates.w1.date': "8 &amp; 9 augustus",
       'dates.w1.trail': "Heeze–Weert · 38 km in 2 dagen · 1 nacht wildkamperen",
@@ -1582,10 +1528,10 @@
       'dates.w2.desc': "Een wandeltocht dicht bij huis, groot genoeg om als echt avontuur te voelen.",
       'dates.w2.price': "€120",
       'dates.collab': "In samenwerking met",
+      'dates.soldOut': "Volgeboekt",
       'dates.seeIncluded': "— zie wat er inbegrepen is",
-      'dates.body': "Wil je mee? Join de WhatsApp community en stuur mij een DM zodra je je plekje wilt reserveren.",
+      'dates.body': "Beide augustus-weekenden zitten vol. Wil je als eerste horen wanneer de volgende Micro-Adventure Weekends zijn? Word lid van de WhatsApp community.",
       'dates.cta': "Word lid van de WhatsApp community →",
-
       'whatsapp.h2': "Blijf op de <em>hoogte</em>.",
       'whatsapp.body': "Ontvang updates over nieuwe data, leer andere vrouwen kennen en proef alvast de sfeer. Stel vragen, kijk mee en claim je plek voor een weekend zodra het goed voelt.",
       'whatsapp.cta': "Word lid van de WhatsApp community",
@@ -1600,7 +1546,6 @@
       'practical.out.l1': "Reis van en naar het beginpunt",
       'practical.out.l2': "Lunch &amp; snacks onderweg (zelf meenemen)",
       'practical.out.l3': "Persoonlijke uitrusting: tent, slaapzak, rugzak, etc. (ik kan je hierbij wel helpen!)",
-
       'faq.eyebrow': "FAQ",
       'faq.h2': "Vragen, beantwoord.",
       'faq.q1.s': "Is dit alleen voor beginners?",
@@ -1619,17 +1564,13 @@
       'faq.q7.a': "Iedereen die zich identificeert als vrouw is hier welkom. Dat geldt voor cis vrouwen, trans vrouwen, en mensen met ervaringen of identiteiten die zich verbonden voelen met vrouw-zijn en die zich prettig voelen in een vrouwgerichte ruimte. Het doel van deze avonturen is een omgeving te creëren waarin mensen zich veilig, gesteund en zichzelf kunnen voelen. Vriendelijkheid, respect en oog hebben voor elkaar zijn veel belangrijker dan passen binnen een strikte definitie. Twijfel je of deze ruimte bij je past? Neem gerust contact op om het te vragen.",
       'faq.q8.s': "Waarom zijn deze avonturen alleen voor vrouwen?",
       'faq.q8.a': "Ik ben met deze avonturen begonnen omdat ik een ruimte wil creëren waarin vrouwen zich prettig voelen om uit hun comfortzone te stappen, iets nieuws te proberen en samen zelfvertrouwen op te bouwen. Voor veel vrouwen kunnen buitenactiviteiten en avontuurlijke sporten soms intimiderend of mannen-gedomineerd aanvoelen. Ik wil een omgeving creëren met wat minder druk, waar mensen precies mogen zijn wie ze zijn, vrijuit vragen kunnen stellen, zich gesteund voelen en in contact komen met anderen die hetzelfde zoeken. Dit gaat er niet om iemand uit te sluiten, het gaat om het creëren van een ruimte rond een specifieke ervaring en community. Mijn hoop is dat het meer vrouwen helpt om zelfverzekerd genoeg te zijn om ruimte in te nemen buiten, nieuwe dingen te proberen en te ontdekken dat ze meer kunnen dan ze denken.",
-
       'form.eyebrow': "Ik doe mee",
       'form.h2': "Kom <em>mee</em>.",
       'form.lead': "Laat hieronder je gegevens achter. Ik neem contact op met de aankomende data en beantwoord alle vragen die je hebt. Geen druk, geen spam.",
-
       'cta.inline': "Claim je plek →",
-
       'footer.tagline': "Micro-adventures voor vrouwen. Gevestigd in Nederland."
     }
   };
-
   function setLang(lang) {
     if (!translations[lang]) lang = 'en';
     try { localStorage.setItem('josi-lang', lang); } catch(e) {}
@@ -1644,11 +1585,9 @@
       b.classList.toggle('active', b.dataset.lang === lang);
     });
   }
-
   document.querySelectorAll('.lang-btn').forEach(b => {
     b.addEventListener('click', () => setLang(b.dataset.lang));
   });
-
   // initial: stored choice → browser preference → English
   let initial = 'en';
   try { initial = localStorage.getItem('josi-lang') || (navigator.language && navigator.language.toLowerCase().startsWith('nl') ? 'nl' : 'en'); } catch(e) {}
