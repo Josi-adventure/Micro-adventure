@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><rect width='100' height='100' fill='%2336544D' rx='15'/><path d='M15 80 L50 22 L85 80 Z' stroke='%23FCF8EA' stroke-width='6' fill='none' stroke-linejoin='round' stroke-linecap='round'/><path d='M40 80 L50 58 L60 80' stroke='%23FCF8EA' stroke-width='5' fill='none' stroke-linejoin='round' stroke-linecap='round'/></svg>" />
+<title>Find your adventure · JOSI Adventure</title>
+<meta name="description" content="All upcoming micro-adventures for women, plus glimpses of the ones we've already had." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+<!-- Cloudflare Web Analytics (production only) -->
+<script>
+  if (location.hostname === 'josi-adventure.nl' || location.hostname === 'www.josi-adventure.nl') {
+    var cfBeacon = document.createElement('script');
+    cfBeacon.defer = true;
+    cfBeacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+    cfBeacon.setAttribute('data-cf-beacon', '{"token": "e699db5ba7a04d6f966d9309abe2cbd4"}');
+    document.head.appendChild(cfBeacon);
+  }
+</script>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="josi-outdoor.html">JOSI<span class="logo-sub">Adventure</span></a>
+    <div class="nav-right">
+      <a class="nav-link" href="josi-outdoor.html#whatsapp" data-i18n="wa.cta">Join the community</a>
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="nl">NL</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ PAGE HERO ============ -->
+<header class="page-hero" id="top">
+  <div class="hero-bg">
+    <img src="images/site/adventures-hero.jpg" alt="" onerror="this.remove()" />
+  </div>
+  <h1 data-i18n="page.advH1">Find your adventure</h1>
+</header>
+
+<!-- ============ ALL UPCOMING ADVENTURES ============ -->
+<section class="whatis" id="all-adventures">
+  <div class="container">
+    <h2 data-i18n="adv.h2">Upcoming adventures</h2>
+
+    <div class="adv-toolbar">
+      <p class="adv-count" id="advCount"></p>
+      <div class="select-wrap">
+        <select id="monthFilter" aria-label="Filter by month">
+          <option value="all">All months</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="adv-grid adv-grid--page" id="pageAdvGrid" hidden></div>
+    <p class="adv-status" id="pageAdvStatus" data-i18n="adv.loading">Loading dates…</p>
+
+    <div class="adv-empty adv-empty--cream" id="pageAdvEmpty" hidden>
+      <h3 data-i18n="adv.emptyTitle">No dates on the calendar right now</h3>
+      <p data-i18n="adv.emptyBody">New adventures are being planned. Join the WhatsApp community and you'll be the first to know when dates go live.</p>
+      <a href="https://chat.whatsapp.com/IxuM4BLckEXEuDXC5jCITK" target="_blank" rel="noopener" class="pill pill--orange">
+        <span data-i18n="adv.emptyCta">Join the community</span>
+        <span class="pill-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GLIMPSES OF PAST ADVENTURES ============ -->
+<section class="glimpses" id="glimpses" hidden>
+  <div class="container">
+    <h2 data-i18n="glimpse.h2">Glimpses of past adventures</h2>
+
+    <!-- photos auto-discovered from images/gallery/01.jpg, 02.jpg … -->
+    <div class="gallery-grid" id="galleryGrid" hidden></div>
+
+    <!-- Instagram reels, pulled from the sheet -->
+    <div id="reelsWrap" hidden>
+      <p class="reels-head" data-i18n="glimpse.reels">From our Instagram</p>
+      <div class="reels-strip" id="reelsStrip"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <a class="logo" href="josi-outdoor.html">JOSI<span class="logo-sub">Adventure</span></a>
+    <p data-i18n="footer.tagline">Micro-adventures for women. Based in the Netherlands.</p>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/puckjb/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/puck-josefien-blokland-015/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.5c0-1.31-.02-3-1.9-3-1.9 0-2.2 1.43-2.2 2.9V21H9z"/></svg>
+      </a>
+    </div>
+    <p style="margin-top:.5rem;">© 2026 JOSI Adventure</p>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
