@@ -24,8 +24,8 @@
                       push the button further down and open up the middle of
                       the photo, so people in the shot aren't covered.
      ------------------------------------------------------------------- */
-  --hero-focus: center 30%;
-  --hero-cta-offset: 0rem;
+  --hero-focus: center 25%;
+  --hero-cta-offset: 1rem;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
