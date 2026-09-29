@@ -1,6 +1,6 @@
 /* ==========================================================================
    JOSI Adventure — shared stylesheet
-   Used by index (josi-outdoor.html) and adventures.html
+   Used by index.html (homepage) and adventures.html
    ========================================================================== */
 
 :root {
@@ -16,9 +16,16 @@
   --muted: #5E7771;
   --maxw: 1180px;
 
-  /* Hero crop focus. 50% = centre of the photo, higher = show more of the
-     lower part of the image. Nudge this if people get cut off. */
-  --hero-focus: center 58%;
+  /* --- Hero tuning ---------------------------------------------------
+     hero-focus:      which part of the photo stays in frame when cropped.
+                      "center" keeps the middle. "center 70%" shows more of
+                      the bottom, "center 30%" more of the top.
+     hero-cta-offset: gap between the subtitle and the button. Increase it to
+                      push the button further down and open up the middle of
+                      the photo, so people in the shot aren't covered.
+     ------------------------------------------------------------------- */
+  --hero-focus: center;
+  --hero-cta-offset: 11rem;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -192,7 +199,8 @@ section { padding: 6rem 0; position: relative; }
   color: rgba(252,248,234,.94);
   font-size: clamp(1rem, 1.6vw, 1.18rem);
   max-width: 30ch;
-  margin: 0 auto 2.6rem;
+  /* the gap below is what pushes the button down — see --hero-cta-offset */
+  margin: 0 auto var(--hero-cta-offset);
   text-shadow: 0 1px 12px rgba(0,0,0,.3);
 }
 
@@ -549,6 +557,7 @@ footer a { color: rgba(252,248,234,.9); }
   .wa-photo { position: static; width: 100%; max-width: 330px; margin: 2.4rem auto 0; transform: rotate(-4deg); }
   .wa { padding-bottom: 4.5rem; }
   .hero { min-height: 82vh; }
+  :root { --hero-cta-offset: 7rem; }
   .page-hero { min-height: 38vh; padding: 7.5rem 0 3rem; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 150px; }
   .gallery-grid figure:nth-child(6n + 2) { grid-column: span 2; grid-row: span 2; }
@@ -556,6 +565,7 @@ footer a { color: rgba(252,248,234,.9); }
 }
 @media (max-width: 560px) {
   body { font-size: 16px; }
+  :root { --hero-cta-offset: 5rem; }
   .who-grid { grid-template-columns: 1fr; }
   .whatis-tags { grid-template-columns: 1fr; gap: 1rem; }
   .adv-grid[data-count="1"], .adv-grid[data-count="2"] { max-width: 100%; }
