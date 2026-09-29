@@ -25,7 +25,7 @@
                       the photo, so people in the shot aren't covered.
      ------------------------------------------------------------------- */
   --hero-focus: center 35%;
-  --hero-cta-offset: 15rem;
+  --hero-cta-offset: 30rem;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
