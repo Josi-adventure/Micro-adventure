@@ -1,86 +1,82 @@
 # JOSI Adventure
 
-Marketing landing page for [JOSI Adventure](https://josi-adventure.nl) — small-group wild-camping / hiking weekends for women in the Netherlands and Belgium.
+Marketing site for [JOSI Adventure](https://josi-adventure.nl) — small-group micro-adventures for women in the Netherlands and Belgium.
 
-## What's here
+## Structure
 
-A single-file static website. Everything is in `index.html` — HTML, CSS, JS, translations, all inline. No build step, no dependencies to install.
+```
+Micro-adventure/
+├── index.html                   ← homepage
+├── adventures.html              ← "Find your adventure"
+├── .nojekyll                    ← stops GitHub Pages running Jekyll (don't delete)
+├── CNAME                        ← custom domain, managed by GitHub Pages
+├── assets/
+│   ├── styles.css               ← all styling, both pages
+│   └── site.js                  ← all logic, translations, sheet URLs
+└── images/
+    ├── site/                    ← hero, portraits, page furniture
+    ├── adventures/<slug>/       ← cover.jpg and reel.jpg per adventure
+    └── gallery/                 ← 01.jpg, 02.jpg … for the Glimpses grid
+```
 
-- **Live at**: https://josi-adventure.nl
-- **Hosted on**: GitHub Pages (auto-deploys on push to `main`)
-- **Bilingual**: English + Dutch, runtime toggle in the top-right of the page
+Static HTML, CSS and vanilla JS. No build step, no dependencies.
 
-## Working on it
+## Where things live
 
-### Edit content
+**Copy and translations** → `assets/site.js`, in the `translations` object. Every string has an `en` and an `nl` version under the same key. Keep both in sync.
 
-Open `index.html` in any editor. Most text lives inside a `translations` object near the bottom of the `<script>` tag — search for `translations = {` to find it. Every visible piece of copy has both an `en` and a `nl` version keyed under the same string.
+**Colours, fonts, layout** → `assets/styles.css`. Palette is at the top as CSS variables.
 
-**Keep both languages in sync.** If you add a new translatable string, add both `en` and `nl` entries.
+**Adventure dates and reviews** → a published Google Sheet, not the code. See `SETUP-adventures-sheet.md`.
 
-### Publish
+**Gallery photos** → drop numbered files into `images/gallery/`. The page finds them automatically.
+
+## Publishing
 
 ```bash
-git add index.html
+git add .
 git commit -m "your change"
 git push
 ```
 
-GitHub Pages redeploys in ~30 seconds. Hard-refresh the browser (Cmd/Ctrl+Shift+R) if you don't see changes immediately — favicons and analytics beacons cache aggressively.
+GitHub Pages redeploys in ~30 seconds. Hard-refresh (Cmd/Ctrl+Shift+R) if you don't see the change — CSS, favicons and analytics cache aggressively.
 
-### Preview locally
+## Local preview
 
-Open `index.html` in a browser directly — no server needed. Or run any static server if you prefer, e.g.:
+Because the pages load `assets/` by relative path, opening the file directly works fine:
+
+```bash
+open index.html
+```
+
+Or run a server if you prefer:
 
 ```bash
 python3 -m http.server
+# then http://localhost:8000
 ```
-
-Then open http://localhost:8000/index.html.
 
 ## Working with AI
 
-This repo is set up for AI-assisted development:
+- **`CLAUDE.md`** — full project brief, read by Claude Code at the start of every session
+- **`.github/copilot-instructions.md`** — repo-level instructions for GitHub Copilot
 
-- **`CLAUDE.md`** — full project brief for Claude Code. Read at every session.
-- **`.github/copilot-instructions.md`** — repo-level instructions for GitHub Copilot.
-
-Both files explain the design system, i18n architecture, deployment quirks, and common gotchas. Keep them updated as the project evolves.
-
-## File overview
-
-```
-Micro-adventure/
-├── index.html                      — the entire site
-├── CNAME                           — custom domain (managed by GitHub Pages)
-├── CLAUDE.md                       — AI briefing
-├── README.md                       — this file
-├── .github/
-│   └── copilot-instructions.md
-└── images/
-    ├── hero.jpg
-    ├── saturday-morning.jpg
-    ├── saturday-evening.jpg
-    ├── sunday.jpg
-    ├── included.jpg
-    └── puck.jpg
-```
+Keep both current as the project changes.
 
 ## Stack
 
-- Vanilla HTML / CSS / JS — no framework, no bundler.
-- Google Fonts CDN — Fraunces (serif), Inter (sans), Caveat (handwritten).
-- [Cloudflare Web Analytics](https://dash.cloudflare.com) — privacy-friendly analytics, no cookie banner needed.
-- Google Forms — currently not used (removed in favor of a WhatsApp funnel).
+- Vanilla HTML / CSS / JS, no framework or bundler
+- Google Fonts: Poppins (headings), DM Sans (body)
+- Google Sheets published as CSV for adventures and reviews
+- Ticket Tailor for ticketing — linked per adventure from the sheet
+- Cloudflare Web Analytics, no cookies, no consent banner needed
 
-## Domain & DNS
+## Domain
 
-- Domain registered at GoDaddy (planned move to TransIP after the 60-day ICANN lock).
-- DNS points four A records on `@` to GitHub Pages' IPs (`185.199.108-111.153`).
-- No CNAME to `josi-adventure.github.io` is required — the default www CNAME points back to the apex which resolves to GitHub via those A records.
+`josi-adventure.nl`, four A records on `@` pointing at GitHub Pages (`185.199.108–111.153`). Registered at GoDaddy, planned move to TransIP.
 
-If you ever see "NotServedByPagesError" on the Custom Domain settings, it's almost always leftover parking A records at the DNS provider. See `CLAUDE.md` → *Deployment* for the fix.
+If GitHub Pages ever reports "NotServedByPagesError", it's nearly always leftover parking A records at the DNS provider. See `CLAUDE.md` → Deployment.
 
 ## License
 
-All rights reserved. Copy, imagery, and brand are property of JOSI Adventure.
+All rights reserved. Copy, imagery and brand belong to JOSI Adventure.
