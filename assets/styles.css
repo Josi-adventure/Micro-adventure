@@ -24,8 +24,8 @@
                       push the button further down and open up the middle of
                       the photo, so people in the shot aren't covered.
      ------------------------------------------------------------------- */
-  --hero-focus: center 25%;
-  --hero-cta-offset: 1rem;
+  --hero-focus: center;
+  --hero-cta-offset: 11rem;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -371,18 +371,22 @@ section { padding: 6rem 0; position: relative; }
 }
 
 /* ---------- ABOUT ---------- */
-.about { background: var(--cream); }
+/* Sage, so it separates from the cream sections either side of it.
+   Change to var(--cream) if you'd rather it matched them again — but
+   then add something else to break up the three cream blocks in a row. */
+.about { background: var(--sage); }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: center; }
 .about-text p + p { margin-top: 1.15rem; }
-.about-sign { margin-top: 1.6rem; font-family: 'Poppins', sans-serif; font-weight: 500; color: var(--muted); }
-.about-photo { border-radius: 22px; overflow: hidden; aspect-ratio: 4 / 3.4; background: var(--sage); }
+.about-sign { margin-top: 1.6rem; font-family: 'Poppins', sans-serif; font-weight: 500; color: var(--green); opacity: .8; }
+.about-photo { border-radius: 22px; overflow: hidden; aspect-ratio: 4 / 3.4; background: var(--cream-deep); }
 .about-photo img { width: 100%; height: 100%; object-fit: cover; }
 
+/* cream circles, because the section behind them is sage */
 .social-links { display: flex; gap: .7rem; margin-top: 1.5rem; }
 .social-links a {
   width: 42px; height: 42px;
   border-radius: 50%;
-  background: var(--sage);
+  background: var(--cream);
   color: var(--green);
   display: grid; place-items: center;
   transition: background .2s ease, color .2s ease, transform .2s ease;
