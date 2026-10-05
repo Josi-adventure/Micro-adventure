@@ -26,6 +26,11 @@
      ------------------------------------------------------------------- */
   --hero-focus: center;
   --hero-cta-offset: 11rem;
+
+  /* Height of one Glimpses gallery row. A single column at this height reads
+     as a portrait frame; a two-column tile reads as landscape. Raise it for
+     taller portraits, lower it for squarer ones. */
+  --gallery-row: 440px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -425,79 +430,82 @@ section { padding: 6rem 0; position: relative; }
 .glimpses { background: var(--cream); }
 .glimpses h2 { margin-bottom: 2.6rem; }
 
+/* Section header: pill label + heading left, short description right */
+.gal-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.gal-head h2 { margin-bottom: 0; }
+.gal-head-sub {
+  color: var(--muted);
+  font-size: .95rem;
+  line-height: 1.5;
+  text-align: right;
+  max-width: 28ch;
+}
+.eyebrow-pill {
+  display: inline-block;
+  background: var(--sage);
+  color: var(--green);
+  padding: .34rem .9rem;
+  border-radius: 999px;
+  font-family: 'Poppins', sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  margin-bottom: .9rem;
+}
+
+/* Grid for the Glimpses photos. Three columns; row height is set so a single
+   column reads as a PORTRAIT frame and a two-column tile as a LANDSCAPE one.
+   Spans are worked out in site.js — see the comment above galleryLayout(). */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 190px;
-  grid-auto-flow: dense;
-  gap: 1.1rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: var(--gallery-row);
+  gap: .9rem;
 }
-.gallery-grid figure {
-  border-radius: 18px;
-  overflow: hidden;
-  background: var(--sage);
-  grid-column: span 1;
-  grid-row: span 2;
-}
-/* a repeating bento rhythm: every 6th tile goes wide + tall */
-.gallery-grid figure:nth-child(6n + 2) { grid-column: span 2; grid-row: span 3; }
-.gallery-grid figure:nth-child(6n + 5) { grid-column: span 2; grid-row: span 2; }
-.gallery-grid figure img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
-.gallery-grid figure:hover img { transform: scale(1.04); }
-
-.reels-head {
-  margin: 3.5rem 0 1.4rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 1.15rem;
-  color: var(--green);
-}
-.reels-strip {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-  gap: 1.1rem;
-}
-.reel {
+.gal-tile {
   position: relative;
   display: block;
-  aspect-ratio: 9 / 16;
-  border-radius: 18px;
+  border-radius: 16px;
   overflow: hidden;
-  background: var(--green);
+  background: var(--sage);
   text-decoration: none;
-  transition: transform .25s ease;
 }
-.reel:hover { transform: translateY(-4px); }
-.reel img { width: 100%; height: 100%; object-fit: cover; }
-.reel::after {
+.gal-tile[data-span="2"] { grid-column: span 2; }
+.gal-spacer { display: block; }   /* empty cell, pads an incomplete group */
+.gal-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.gal-tile:hover img { transform: scale(1.04); }
+
+/* A photo listed in the sheet with an instagram_url becomes a reel:
+   play button on top, click opens Instagram. No caption. */
+.gal-tile--reel::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(42,66,60,.10) 40%, rgba(42,66,60,.72) 100%);
+  background: linear-gradient(180deg, rgba(42,66,60,.05) 45%, rgba(42,66,60,.34) 100%);
+  pointer-events: none;
 }
-.reel-play {
+.gal-play {
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 54px; height: 54px;
+  width: 62px; height: 62px;
   border-radius: 50%;
-  background: rgba(252,248,234,.92);
+  background: rgba(252,248,234,.94);
   display: grid; place-items: center;
   z-index: 2;
+  box-shadow: 0 4px 18px rgba(42,66,60,.22);
   transition: transform .25s ease;
 }
-.reel:hover .reel-play { transform: translate(-50%, -50%) scale(1.08); }
-.reel-play svg { width: 20px; height: 20px; color: var(--green); margin-left: 3px; }
-.reel-label {
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  z-index: 2;
-  padding: 0.9rem 1rem;
-  color: var(--cream);
-  font-size: .9rem;
-  line-height: 1.3;
-}
-.reel-label strong { font-family: 'Poppins', sans-serif; font-weight: 600; display: block; }
-.reel-label span { opacity: .82; font-size: .82rem; }
+.gal-tile--reel:hover .gal-play { transform: translate(-50%, -50%) scale(1.09); }
+.gal-play svg { width: 23px; height: 23px; color: var(--green); margin-left: 3px; }
+
 
 /* ---------- FAQ ---------- */
 .faq { background: var(--cream); }
@@ -563,9 +571,11 @@ footer a { color: rgba(252,248,234,.9); }
   .hero { min-height: 82vh; }
   :root { --hero-cta-offset: 7rem; }
   .page-hero { min-height: 38vh; padding: 7.5rem 0 3rem; }
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 150px; }
-  .gallery-grid figure:nth-child(6n + 2) { grid-column: span 2; grid-row: span 2; }
-  .gallery-grid figure:nth-child(6n + 5) { grid-column: span 2; grid-row: span 2; }
+  :root { --gallery-row: 380px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gal-tile[data-span="2"] { grid-column: span 2; }
+  .gal-head { gap: 1rem; }
+  .gal-head-sub { text-align: left; max-width: none; }
 }
 @media (max-width: 560px) {
   body { font-size: 16px; }
@@ -578,5 +588,7 @@ footer a { color: rgba(252,248,234,.9); }
   .pill { font-size: .8rem; padding-left: 1.2rem; }
   .adv-toolbar { flex-direction: column; align-items: stretch; }
   .select-wrap select { width: 100%; }
-  .reels-strip { grid-template-columns: repeat(2, 1fr); }
+  :root { --gallery-row: 330px; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gal-tile[data-span="2"] { grid-column: span 1; }
 }
