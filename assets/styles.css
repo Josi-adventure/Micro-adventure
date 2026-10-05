@@ -429,8 +429,15 @@ section { padding: 6rem 0; position: relative; }
 .review-date { color: var(--muted); font-size: .9rem; }
 
 /* ---------- GLIMPSES (sub-page) ---------- */
-.glimpses { background: var(--cream); }
-.glimpses h2 { margin-bottom: 2.6rem; }
+/* Sits directly under the adventure list, both on cream — so the run between
+   them is tightened and a hairline marks where one ends and the next starts. */
+#all-adventures { padding-bottom: 3.5rem; }
+.glimpses {
+  background: var(--cream);
+  padding-top: 3.5rem;
+  border-top: 1px solid rgba(54,84,77,.16);
+}
+.glimpses h2 { margin-bottom: 0; }
 
 /* Section header: pill label + heading left, short description right */
 .gal-head {
@@ -449,18 +456,27 @@ section { padding: 6rem 0; position: relative; }
   text-align: right;
   max-width: 28ch;
 }
-.eyebrow-pill {
-  display: inline-block;
+/* skeleton tiles + message shown while the photos are being located */
+.gal-skel {
   background: var(--sage);
-  color: var(--green);
-  padding: .34rem .9rem;
-  border-radius: 999px;
-  font-family: 'Poppins', sans-serif;
-  font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: .07em;
-  text-transform: uppercase;
-  margin-bottom: .9rem;
+  animation: galPulse 1.3s ease-in-out infinite;
+}
+.gal-skel:nth-child(2) { animation-delay: .15s; }
+.gal-skel:nth-child(3) { animation-delay: .3s; }
+.gal-skel:nth-child(4) { animation-delay: .45s; }
+.gal-skel:nth-child(5) { animation-delay: .6s; }
+@keyframes galPulse {
+  0%, 100% { opacity: .5; }
+  50%      { opacity: .9; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gal-skel { animation: none; opacity: .6; }
+}
+.gal-loading {
+  text-align: center;
+  color: var(--muted);
+  font-size: .92rem;
+  margin-top: 1.2rem;
 }
 
 /* Grid for the Glimpses photos. Three columns; row height is set so a single
