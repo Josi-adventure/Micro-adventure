@@ -268,6 +268,8 @@ const HEADER_ALIASES = {
   ticket_url: 'link_url', tickets: 'link_url', ticket_tailor: 'link_url', tickettailor: 'link_url',
   instagram: 'instagram_url', insta: 'instagram_url', reel: 'instagram_url', reel_url: 'instagram_url',
   poster: 'video_poster', thumbnail: 'video_poster', video_thumb: 'video_poster',
+  gallery_image: 'video_poster', gallery_photo: 'video_poster', gallery_ref: 'video_poster',
+  reel_image: 'video_poster', insta_image: 'video_poster', instagram_image: 'video_poster',
   start: 'start_date', begin: 'start_date',
   end: 'end_date', finish: 'end_date',
   rating: 'stars', score: 'stars',
@@ -443,6 +445,10 @@ async function loadAdventures() {
   }
   renderHomeAdventures();
   renderPageAdventures();
+  /* The gallery needs this data too — Instagram links live in the sheet.
+     Gallery discovery and this fetch race each other, so whichever finishes
+     last re-renders. renderGallery() no-ops until the photos are known. */
+  renderGallery();
 }
 
 /* ============================================================
@@ -584,11 +590,26 @@ function galleryLayout(srcs) {
    and 05.jpg in the sheet all resolve to the same tile. */
 function instagramByPhoto() {
   const map = {};
+  let withLink = 0, withoutRef = 0;
+
   ADVENTURES.forEach(a => {
     if (!a.instagram_url) return;
+    withLink++;
     const base = String(a.video_poster || '').split('/').pop().trim().toLowerCase();
     if (base) map[base] = a.instagram_url;
+    else withoutRef++;
   });
+
+  if (withLink) {
+    console.info('[gallery] instagram links in sheet: ' + withLink +
+                 ' | matched to a photo: ' + Object.keys(map).length +
+                 (Object.keys(map).length ? ' (' + Object.keys(map).join(', ') + ')' : ''));
+  }
+  if (withoutRef) {
+    console.warn('[gallery] ' + withoutRef + ' row(s) have an instagram_url but no photo ' +
+                 'reference. Put the gallery filename (e.g. images/gallery/05.jpg) in the ' +
+                 'video_poster column so the link knows which tile to attach to.');
+  }
   return map;
 }
 
