@@ -75,19 +75,24 @@
 </section>
 
 <!-- ============ GLIMPSES OF PAST ADVENTURES ============ -->
-<section class="glimpses" id="glimpses" hidden>
+<!-- visible from the start so the section doesn't appear late; the skeleton
+     tiles below are replaced once the photos have been found -->
+<section class="glimpses" id="glimpses">
   <div class="container">
     <div class="gal-head">
-      <div>
-        <span class="eyebrow-pill" data-i18n="glimpse.pill">Our stories</span>
-        <h2 data-i18n="glimpse.h2">Glimpses of past adventures</h2>
-      </div>
+      <h2 data-i18n="glimpse.h2">Glimpses of past adventures</h2>
       <p class="gal-head-sub" data-i18n="glimpse.sub">Photos from the trails, the camps and the mornings after.</p>
     </div>
 
     <!-- photos auto-discovered from images/gallery/01.jpg, 02.jpg … -->
-    <div class="gallery-grid" id="galleryGrid" hidden></div>
-
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gal-tile gal-skel" data-span="1"></div>
+      <div class="gal-tile gal-skel" data-span="2"></div>
+      <div class="gal-tile gal-skel" data-span="1"></div>
+      <div class="gal-tile gal-skel" data-span="1"></div>
+      <div class="gal-tile gal-skel" data-span="1"></div>
+    </div>
+    <p class="gal-loading" id="galLoading" data-i18n="glimpse.loading">Pulling in the photos, one second…</p>
   </div>
 </section>
 
