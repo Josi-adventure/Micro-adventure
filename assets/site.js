@@ -1,6 +1,6 @@
 /* ==========================================================================
    JOSI Adventure — shared site script
-   Loaded by both josi-outdoor.html (homepage) and adventures.html
+   Loaded by both index.html (homepage) and adventures.html
    Each page only renders the bits it actually contains.
    ========================================================================== */
 
@@ -78,8 +78,9 @@ const translations = {
     'page.allMonths': "All months",
     'page.filterLabel': "Filter by month",
 
+    'glimpse.pill': "Our stories",
     'glimpse.h2': "Glimpses of past adventures",
-    'glimpse.reels': "From our Instagram",
+    'glimpse.sub': "Photos from the trails, the camps and the mornings after.",
 
     'who.h2': "Who is it for?",
     'who.intro': "Whether you've already been on lots of adventures or you're keen to give it a try, this is for you. It's for women who want to spend more time outdoors, who collect outdoor inspiration but rarely get around to living it, and who want to meet other women who love it too.",
@@ -161,8 +162,9 @@ const translations = {
     'page.allMonths': "Alle maanden",
     'page.filterLabel': "Filter op maand",
 
+    'glimpse.pill': "Onze verhalen",
     'glimpse.h2': "Glimpses van eerdere avonturen",
-    'glimpse.reels': "Van onze Instagram",
+    'glimpse.sub': "Foto's van de paden, de kampjes en de ochtenden erna.",
 
     'who.h2': "Voor wie is het?",
     'who.intro': "Of je nu al heel wat avonturen achter de rug hebt of er juist graag eens eentje wilt proberen: dit is voor jou. Voor vrouwen die vaker naar buiten willen, eindeloos outdoor-inspiratie opslaan maar er te weinig aan toekomen, en het leuk vinden om andere vrouwen te ontmoeten die daar net zo enthousiast van worden.",
@@ -442,7 +444,6 @@ async function loadAdventures() {
   }
   renderHomeAdventures();
   renderPageAdventures();
-  renderReels();
 }
 
 /* ============================================================
@@ -519,6 +520,75 @@ async function discoverGallery() {
   return found;
 }
 
+/* ---------------------------------------------------------------------------
+   Gallery layout — photos are published in groups of five.
+
+   Numbering starts at the BOTTOM RIGHT and runs right-to-left, bottom-to-top,
+   so the newest group always sits at the top of the section.
+
+   Each group of five fills two rows:
+       top row     wide + narrow   (the wide slot swaps sides each group)
+       bottom row  three narrow
+
+   That's why 4, 10, 14, 20 … always land in a wide slot and should be
+   LANDSCAPE photos, while everything else should be PORTRAIT.
+
+   Nothing is ever stretched. An incomplete group (fewer than five uploaded so
+   far) renders as plain narrow tiles and simply leaves the space empty.
+   --------------------------------------------------------------------------- */
+const GALLERY_GROUP = 5;
+
+function galleryLayout(srcs) {
+  // srcs arrive in ascending filename order: 01, 02, 03 …
+  const groups = [];
+  for (let i = 0; i < srcs.length; i += GALLERY_GROUP) {
+    groups.push(srcs.slice(i, i + GALLERY_GROUP));
+  }
+
+  const out = [];
+  // walk groups newest-first so the highest numbers render at the top
+  for (let g = groups.length - 1; g >= 0; g--) {
+    const grp = groups[g];
+    const groupNo = g + 1;                 // 1-based, matches the photo numbering
+    const wideOnRight = groupNo % 2 === 1;  // alternates each group
+
+    if (grp.length === GALLERY_GROUP) {
+      const [n1, n2, n3, n4, n5] = grp;
+      // top row — reading left to right on screen
+      if (wideOnRight) out.push({ src: n5, span: 1 }, { src: n4, span: 2 });
+      else             out.push({ src: n5, span: 2 }, { src: n4, span: 1 });
+      // bottom row — three narrow, newest on the left
+      out.push({ src: n3, span: 1 }, { src: n2, span: 1 }, { src: n1, span: 1 });
+    } else {
+      // Partial group (fewer than five uploaded yet): narrow tiles, newest
+      // first, nothing stretched. Blank cells pad out the row so the finished
+      // group below still starts on a clean row of its own.
+      for (let i = grp.length - 1; i >= 0; i--) out.push({ src: grp[i], span: 1 });
+      const pad = (3 - (grp.length % 3)) % 3;
+      for (let i = 0; i < pad; i++) out.push({ spacer: true, span: 1 });
+    }
+  }
+  return out;
+}
+
+/* Maps a gallery filename → Instagram URL, using the adventures sheet.
+   Matching is on filename only, so images/gallery/05.jpg, gallery/05.jpg
+   and 05.jpg in the sheet all resolve to the same tile. */
+function instagramByPhoto() {
+  const map = {};
+  ADVENTURES.forEach(a => {
+    if (!a.instagram_url) return;
+    const base = String(a.video_poster || '').split('/').pop().trim().toLowerCase();
+    if (base) map[base] = a.instagram_url;
+  });
+  return map;
+}
+
+const PLAY_ICON =
+  '<span class="gal-play" aria-hidden="true">' +
+    '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>' +
+  '</span>';
+
 function renderGallery() {
   const grid = document.getElementById('galleryGrid');
   if (!grid) return;
@@ -526,38 +596,29 @@ function renderGallery() {
 
   if (!GALLERY.length) {
     grid.hidden = true;
-    // keep the section visible if there are reels to show
-    const reels = document.getElementById('reelsWrap');
-    if (section && (!reels || reels.hidden)) section.hidden = true;
+    if (section) section.hidden = true;
     return;
   }
   if (section) section.hidden = false;
   grid.hidden = false;
-  grid.innerHTML = GALLERY.map(src =>
-    '<figure><img src="' + esc(src) + '" alt="" loading="lazy"></figure>'
-  ).join('');
-}
 
-function renderReels() {
-  const wrap = document.getElementById('reelsWrap');
-  if (!wrap) return;
-  const strip = document.getElementById('reelsStrip');
-  const lang  = CURRENT_LANG;
+  const reels = instagramByPhoto();
 
-  const reels = ADVENTURES.filter(a => a.instagram_url).sort(byStartDate).reverse();
+  grid.innerHTML = galleryLayout(GALLERY).map(tile => {
+    // blank cell, used to pad out an incomplete group
+    if (tile.spacer) return '<span class="gal-spacer" aria-hidden="true"></span>';
 
-  if (!reels.length) { wrap.hidden = true; return; }
-  wrap.hidden = false;
+    const base = tile.src.split('/').pop().toLowerCase();
+    const link = reels[base];
+    const img  = '<img src="' + esc(tile.src) + '" alt="" loading="lazy">';
 
-  strip.innerHTML = reels.map(a => {
-    const title = a['title_' + lang] || a.title_en || '';
-    const meta  = a['meta_' + lang]  || a.meta_en  || '';
-    const img   = a.video_poster || a.cover_image || '';
-    return '<a class="reel" href="' + esc(a.instagram_url) + '" target="_blank" rel="noopener">' +
-      (img ? '<img src="' + esc(img) + '" alt="" loading="lazy" onerror="this.remove()">' : '') +
-      '<span class="reel-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>' +
-      '<span class="reel-label"><strong>' + esc(title) + '</strong><span>' + esc(meta) + '</span></span>' +
-    '</a>';
+    // a photo listed in the sheet becomes a clickable Instagram reel
+    if (link) {
+      return '<a class="gal-tile gal-tile--reel" data-span="' + tile.span + '" ' +
+             'href="' + esc(link) + '" target="_blank" rel="noopener">' +
+             img + PLAY_ICON + '</a>';
+    }
+    return '<figure class="gal-tile" data-span="' + tile.span + '">' + img + '</figure>';
   }).join('');
 }
 
@@ -590,7 +651,7 @@ function setLang(lang) {
   renderHomeAdventures();
   renderPageAdventures();
   renderReviews();
-  renderReels();
+  renderGallery();
 }
 
 /* ============================================================
