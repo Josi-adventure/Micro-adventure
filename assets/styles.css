@@ -27,10 +27,12 @@
   --hero-focus: center;
   --hero-cta-offset: 11rem;
 
-  /* Height of one Glimpses gallery row. A single column at this height reads
-     as a portrait frame; a two-column tile reads as landscape. Raise it for
-     taller portraits, lower it for squarer ones. */
-  --gallery-row: 440px;
+  /* Height of one Glimpses gallery row. At 500px the two-column tile is
+     exactly 3:2 (classic landscape) and a single column is ~3:4 (portrait).
+     The grid fixes the wide tile at 2.04x the narrow aspect, so these two
+     move together — raising this makes portraits taller AND landscapes
+     narrower. 450px would instead give 5:3 wide / 4:5 narrow. */
+  --gallery-row: 500px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -571,7 +573,7 @@ footer a { color: rgba(252,248,234,.9); }
   .hero { min-height: 82vh; }
   :root { --hero-cta-offset: 7rem; }
   .page-hero { min-height: 38vh; padding: 7.5rem 0 3rem; }
-  :root { --gallery-row: 380px; }
+  :root { --gallery-row: 470px; }   /* keeps ~3:4 portraits in a 2-col grid */
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .gal-tile[data-span="2"] { grid-column: span 2; }
   .gal-head { gap: 1rem; }
@@ -588,7 +590,10 @@ footer a { color: rgba(252,248,234,.9); }
   .pill { font-size: .8rem; padding-left: 1.2rem; }
   .adv-toolbar { flex-direction: column; align-items: stretch; }
   .select-wrap select { width: 100%; }
-  :root { --gallery-row: 330px; }
-  .gallery-grid { grid-template-columns: 1fr; }
-  .gal-tile[data-span="2"] { grid-column: span 1; }
+  /* One column: drop fixed rows and let each tile keep its own shape, so a
+     landscape photo stays 3:2 instead of being squeezed into a portrait slot. */
+  .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
+  .gal-tile { aspect-ratio: 3 / 4; }
+  .gal-tile[data-span="2"] { grid-column: span 1; aspect-ratio: 3 / 2; }
+  .gal-spacer { display: none; }
 }
