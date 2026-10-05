@@ -19,10 +19,9 @@ const WHATSAPP_URL  = 'https://chat.whatsapp.com/IxuM4BLckEXEuDXC5jCITK';
 
 /* Gallery auto-discovery: drop numbered photos into images/gallery/
    as 01.jpg, 02.jpg, 03.jpg … and they appear by themselves. */
-const GALLERY_PATH  = 'images/gallery/';
-const GALLERY_EXT   = '.jpg';
-const GALLERY_MAX   = 60;   // highest number we'll ever look for
-const GALLERY_BATCH = 6;    // stop once a whole batch of 6 is missing
+const GALLERY_PATH = 'images/gallery/';
+const GALLERY_EXT  = '.jpg';
+const GALLERY_MAX  = 60;   // highest slot number we look for
 
 /* Used when the sheet is unreachable, so the page never renders empty */
 const FALLBACK_ADVENTURES = [
@@ -78,8 +77,8 @@ const translations = {
     'page.allMonths': "All months",
     'page.filterLabel': "Filter by month",
 
-    'glimpse.pill': "Our stories",
     'glimpse.h2': "Glimpses of past adventures",
+    'glimpse.loading': "Pulling in the photos, one second…",
     'glimpse.sub': "Photos from the trails, the camps and the mornings after.",
 
     'who.h2': "Who is it for?",
@@ -162,8 +161,8 @@ const translations = {
     'page.allMonths': "Alle maanden",
     'page.filterLabel': "Filter op maand",
 
-    'glimpse.pill': "Onze verhalen",
     'glimpse.h2': "Glimpses van eerdere avonturen",
+    'glimpse.loading': "De foto's worden geladen, één seconde…",
     'glimpse.sub': "Foto's van de paden, de kampjes en de ochtenden erna.",
 
     'who.h2': "Voor wie is het?",
@@ -222,7 +221,7 @@ const translations = {
 let CURRENT_LANG = 'en';
 let ADVENTURES = [];
 let REVIEWS = [];
-let GALLERY = [];
+let GALLERY = null;          // null while probing, then an array
 let MONTH_FILTER = 'all';
 
 const t = (key, lang) => {
@@ -495,27 +494,36 @@ async function loadReviews() {
 /* ============================================================
    6. GLIMPSES — gallery photos + Instagram reels
    ============================================================ */
-function probeImage(src) {
-  return new Promise(resolve => {
-    const img = new Image();
-    img.onload  = () => resolve(src);
-    img.onerror = () => resolve(null);
-    img.src = src;
-  });
+/* Checks whether a file exists WITHOUT downloading it. A HEAD request returns
+   headers only, so probing 60 slots costs a few KB instead of several MB.
+   (The old version used new Image(), which downloaded every full photo just
+   to test it existed — that was the slow part.) */
+async function probeImage(src) {
+  try {
+    const res = await fetch(src, { method: 'HEAD' });
+    return res.ok ? src : null;
+  } catch (e) {
+    return null;
+  }
 }
 
-/* Looks for images/gallery/01.jpg, 02.jpg … and stops once a whole
-   batch comes back missing. Just drop numbered files in the folder. */
+/* Looks for images/gallery/01.jpg … 60.jpg, all in one parallel pass.
+   Keeps every file it finds, so a missing number doesn't hide the rest. */
 async function discoverGallery() {
-  const found = [];
-  for (let start = 1; start <= GALLERY_MAX; start += GALLERY_BATCH) {
-    const nums = [];
-    for (let n = start; n < start + GALLERY_BATCH && n <= GALLERY_MAX; n++) nums.push(n);
-    const hits = (await Promise.all(
-      nums.map(n => probeImage(GALLERY_PATH + String(n).padStart(2, '0') + GALLERY_EXT))
-    )).filter(Boolean);
-    found.push(...hits);
-    if (!hits.length) break;
+  const slots = [];
+  for (let n = 1; n <= GALLERY_MAX; n++) {
+    slots.push(GALLERY_PATH + String(n).padStart(2, '0') + GALLERY_EXT);
+  }
+  const found = (await Promise.all(slots.map(probeImage))).filter(Boolean);
+
+  // warn about gaps — they shift which photos land in the wide slots
+  if (found.length) {
+    const last = parseInt(found[found.length - 1].split('/').pop(), 10);
+    if (last !== found.length) {
+      console.warn('[gallery] numbering has a gap: found ' + found.length +
+                   ' files but the highest is ' + last +
+                   '. Keep them sequential so the 5-photo grouping lines up.');
+    }
   }
   return found;
 }
@@ -593,6 +601,12 @@ function renderGallery() {
   const grid = document.getElementById('galleryGrid');
   if (!grid) return;
   const section = document.getElementById('glimpses');
+  const loading = document.getElementById('galLoading');
+
+  // still probing — leave the skeleton and the "loading" line in place
+  if (GALLERY === null) return;
+
+  if (loading) loading.hidden = true;
 
   if (!GALLERY.length) {
     grid.hidden = true;
