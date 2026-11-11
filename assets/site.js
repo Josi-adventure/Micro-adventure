@@ -15,7 +15,7 @@ const REVIEWS_CSV_URL    = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTOB
 /* Social */
 const INSTAGRAM_URL = 'https://www.instagram.com/puckjb/';
 const LINKEDIN_URL  = 'https://www.linkedin.com/in/puck-josefien-blokland-015/';
-const WHATSAPP_URL  = 'https://chat.whatsapp.com/IxuM4BLckEXEuDXC5jCITK';
+const WHATSAPP_URL  = 'https://chat.whatsapp.com/F0f24dayZ6u48D9mMNuiW3';
 
 /* Gallery auto-discovery: drop numbered photos into images/gallery/
    as 01.jpg, 02.jpg, 03.jpg … and they appear by themselves. */
